@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_star"
-                android:text="@{String.valueOf(repo.starts)}"
+                android:text="@{String.valueOf(repo.stars)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/ownerLogin"
                 app:layout_constraintTop_toTopOf="parent" />

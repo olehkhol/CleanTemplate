@@ -4,9 +4,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object GitRetrofit {
-    private const val BASE_URL = "https://api.github.com/"
+    const val BASE_URL = "https://api.github.com/"
 
-    val gitService: GitService = buildRetrofit().create(GitService::class.java)
+    val service: GitService = buildRetrofit().create(GitService::class.java)
 
     private fun buildRetrofit(): Retrofit {
         return Retrofit.Builder()
