@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 class GitHelper @Inject constructor(private val gitRetrofit: GitRetrofit) {
     fun searchRepo(name: String): Call<Repos> {
-        return gitRetrofit.gitService.searchRepo(name)
+        return gitRetrofit.service.searchRepo(name)
     }
 }
