@@ -11,7 +11,12 @@ import ua.`in`.khol.oleh.githobbit.model.GodRepository
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(private val godRepository: GodRepository) : ViewModel() {
-    val reposLiveData: MutableLiveData<List<Repo>> = MutableLiveData()
+    companion object {
+        private const val VISIBLE_THRESHOLD: Int = 5
+    }
+
+    val reposLiveData: MutableLiveData<ArrayList<Repo>> = MutableLiveData()
+    lateinit var query: String
 
     fun searchRepo(name: String) {
         val repos: ArrayList<Repo> = ArrayList()
@@ -23,6 +28,7 @@ class MainViewModel @Inject constructor(private val godRepository: GodRepository
                         .forEach {
                             repos.add(Repo(it.name, it.stargazers_count))
                         }
+                    query = name
                     reposLiveData.value = repos
                 }
 
@@ -30,5 +36,27 @@ class MainViewModel @Inject constructor(private val godRepository: GodRepository
                 }
 
             })
+    }
+
+    fun listScrolled(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
+        if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount) {
+            val repos: ArrayList<Repo> = ArrayList()
+            godRepository.searchMore(query)
+                .enqueue(object : Callback<Repos> {
+                    override fun onResponse(call: Call<Repos>, response: Response<Repos>) {
+                        (response.body()?.items ?: ArrayList())
+                            .forEach {
+                                repos.add(Repo(it.name, it.stargazers_count))
+                            }
+
+                        reposLiveData.value?.addAll(repos)
+                        reposLiveData.value = reposLiveData.value
+                    }
+
+                    override fun onFailure(call: Call<Repos>, t: Throwable) {
+                    }
+
+                })
+        }
     }
 }

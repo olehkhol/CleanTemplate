@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +35,7 @@ class MainView : AppCompatActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         viewModel = ViewModelProvider(this, viewModelProviderFactory)
-            .get(MainViewModel::class.java);
+            .get(MainViewModel::class.java)
 
         viewManager = LinearLayoutManager(this)
         commonAdapter = CommonAdapter()
@@ -45,15 +44,27 @@ class MainView : AppCompatActivity() {
             layoutManager = viewManager
             adapter = commonAdapter
         }
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val manager = viewManager as LinearLayoutManager
+                val totalItemCount = manager.itemCount
+                val visibleItemCount = manager.childCount
+                val lastVisibleItem = manager.findLastVisibleItemPosition()
+
+                viewModel.listScrolled(visibleItemCount, lastVisibleItem, totalItemCount)
+            }
+        })
     }
 
     override fun onStart() {
         super.onStart()
 
-        viewModel.reposLiveData.observe(this, Observer {
+        viewModel.reposLiveData.observe(this) {
             commonAdapter.setItems(it)
             commonAdapter.notifyDataSetChanged()
-        })
+        }
     }
 
     override fun onStop() {
