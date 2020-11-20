@@ -1,6 +1,6 @@
 package ua.`in`.khol.oleh.githobbit.github.dacl
 
-data class Repos(
+data class SearchResponse(
     val incomplete_results: Boolean,
     val items: List<Item>,
     val total_count: Int

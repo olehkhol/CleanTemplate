@@ -53,7 +53,7 @@ class MainView : AppCompatActivity() {
                 val visibleItemCount = manager.childCount
                 val lastVisibleItem = manager.findLastVisibleItemPosition()
 
-                viewModel.listScrolled(visibleItemCount, lastVisibleItem, totalItemCount)
+                viewModel.doListScrolled(visibleItemCount, lastVisibleItem, totalItemCount)
             }
         })
     }
@@ -79,7 +79,7 @@ class MainView : AppCompatActivity() {
         searchView.queryHint = getString(R.string.search_hint)
         searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                viewModel.searchRepo(query)
+                viewModel.searchRepos(query)
 
                 return true
             }

@@ -33,7 +33,7 @@ class CommonAdapter :
 
         fun bind(repo: Repo) {
             binding.repo = repo
-            binding.notifyChange()
+            binding.executePendingBindings()
         }
 
         companion object {

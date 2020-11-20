@@ -2,11 +2,9 @@ package ua.`in`.khol.oleh.githobbit.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import ua.`in`.khol.oleh.githobbit.data.Repo
-import ua.`in`.khol.oleh.githobbit.github.dacl.Repos
 import ua.`in`.khol.oleh.githobbit.model.GodRepository
 import javax.inject.Inject
 
@@ -15,48 +13,43 @@ class MainViewModel @Inject constructor(private val godRepository: GodRepository
         private const val VISIBLE_THRESHOLD: Int = 5
     }
 
+    private val repos: ArrayList<Repo> = ArrayList()
+    private lateinit var query: String
+    private var isMoreProcessing: Boolean = false
+
     val reposLiveData: MutableLiveData<ArrayList<Repo>> = MutableLiveData()
-    lateinit var query: String
 
-    fun searchRepo(name: String) {
-        val repos: ArrayList<Repo> = ArrayList()
+    fun searchRepos(name: String) {
+        query = name
+        repos.clear()
 
-        godRepository.searchRepo(name)
-            .enqueue(object : Callback<Repos> {
-                override fun onResponse(call: Call<Repos>, response: Response<Repos>) {
-                    (response.body()?.items ?: ArrayList())
-                        .forEach {
-                            repos.add(Repo(it.name, it.stargazers_count))
-                        }
-                    query = name
-                    reposLiveData.value = repos
-                }
-
-                override fun onFailure(call: Call<Repos>, t: Throwable) {
-                }
-
-            })
+        viewModelScope.launch {
+            godRepository.searchRepositories(name).forEach {
+                repos.add(Repo(it.name, it.stargazers_count))
+            }
+            reposLiveData.value = repos
+        }
     }
 
-    fun listScrolled(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
-        if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount) {
-            val repos: ArrayList<Repo> = ArrayList()
-            godRepository.searchMore(query)
-                .enqueue(object : Callback<Repos> {
-                    override fun onResponse(call: Call<Repos>, response: Response<Repos>) {
-                        (response.body()?.items ?: ArrayList())
-                            .forEach {
-                                repos.add(Repo(it.name, it.stargazers_count))
-                            }
+    fun doListScrolled(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
+        if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount)
+            searchMoreRepos()
+    }
 
-                        reposLiveData.value?.addAll(repos)
-                        reposLiveData.value = reposLiveData.value
-                    }
+    private fun searchMoreRepos() {
+        if (!isMoreProcessing) { // TODO Find a better way to check if the coroutine is running
+            isMoreProcessing = true
+            viewModelScope.launch {
+                val oldReposSize = repos.size
+                godRepository.searchMoreRepositories(query).forEach {
+                    repos.add(Repo(it.name, it.stargazers_count))
+                }
+                // Updates live data only if the size of the list changed
+                if (oldReposSize < repos.size)
+                    reposLiveData.value = repos
 
-                    override fun onFailure(call: Call<Repos>, t: Throwable) {
-                    }
-
-                })
+                isMoreProcessing = false
+            }
         }
     }
 }
