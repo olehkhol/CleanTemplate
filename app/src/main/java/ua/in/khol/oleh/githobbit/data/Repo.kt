@@ -1,6 +1,8 @@
 package ua.`in`.khol.oleh.githobbit.data
 
 data class Repo(
-    val name: String,
-    val stars: Int
+    val ownerName: String = "",
+    val ownerImage: String = "",
+    val repoName: String = "",
+    val starsCount: Int = 0
 )
