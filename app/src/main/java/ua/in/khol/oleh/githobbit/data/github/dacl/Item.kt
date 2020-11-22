@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.github.dacl
+package ua.`in`.khol.oleh.githobbit.data.github.dacl
 
 data class Item(
     val archive_url: String,

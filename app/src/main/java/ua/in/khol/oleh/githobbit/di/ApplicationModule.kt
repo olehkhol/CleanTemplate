@@ -2,9 +2,9 @@ package ua.`in`.khol.oleh.githobbit.di
 
 import dagger.Module
 import dagger.Provides
-import ua.`in`.khol.oleh.githobbit.github.GitRepository
-import ua.`in`.khol.oleh.githobbit.github.GitRetrofit
-import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelProviderFactory
+import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
+import ua.`in`.khol.oleh.githobbit.data.github.GitRetrofit
+import ua.`in`.khol.oleh.githobbit.presentation.viewmodel.ViewModelProviderFactory
 import javax.inject.Singleton
 
 

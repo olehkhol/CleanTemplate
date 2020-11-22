@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.view
+package ua.`in`.khol.oleh.githobbit.presentation.view
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ActivityMainBinding
-import ua.`in`.khol.oleh.githobbit.viewmodel.MainViewModel
-import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelProviderFactory
+import ua.`in`.khol.oleh.githobbit.presentation.viewmodel.MainViewModel
+import ua.`in`.khol.oleh.githobbit.presentation.viewmodel.ViewModelProviderFactory
 import javax.inject.Inject
 
 class MainView : AppCompatActivity() {

@@ -1,10 +1,10 @@
-package ua.`in`.khol.oleh.githobbit.paging
+package ua.`in`.khol.oleh.githobbit.domain.paging
 
 import androidx.paging.PageKeyedDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import ua.`in`.khol.oleh.githobbit.data.Repo
-import ua.`in`.khol.oleh.githobbit.github.GitRepository
+import ua.`in`.khol.oleh.githobbit.domain.Repo
+import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
 
 class RepoDataSource(
     private val query: String,

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHobbit">
         <activity
-            android:name=".view.MainView">
+            android:name="ua.in.khol.oleh.githobbit.presentation.view.MainView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

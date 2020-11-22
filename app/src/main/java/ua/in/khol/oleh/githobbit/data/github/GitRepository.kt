@@ -1,8 +1,8 @@
-package ua.`in`.khol.oleh.githobbit.github
+package ua.`in`.khol.oleh.githobbit.data.github
 
 import android.util.Log
 import retrofit2.HttpException
-import ua.`in`.khol.oleh.githobbit.github.dacl.Item
+import ua.`in`.khol.oleh.githobbit.data.github.dacl.Item
 import javax.inject.Inject
 
 class GitRepository @Inject constructor(private val gitRetrofit: GitRetrofit) {

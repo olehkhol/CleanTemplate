@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.github
+package ua.`in`.khol.oleh.githobbit.data.github
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

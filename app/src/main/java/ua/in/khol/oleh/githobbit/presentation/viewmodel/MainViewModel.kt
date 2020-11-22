@@ -1,13 +1,13 @@
-package ua.`in`.khol.oleh.githobbit.viewmodel
+package ua.`in`.khol.oleh.githobbit.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import ua.`in`.khol.oleh.githobbit.data.Repo
-import ua.`in`.khol.oleh.githobbit.github.GitRepository
-import ua.`in`.khol.oleh.githobbit.paging.RepoDataSourceFactory
+import ua.`in`.khol.oleh.githobbit.domain.Repo
+import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
+import ua.`in`.khol.oleh.githobbit.domain.paging.RepoDataSourceFactory
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(gitRepository: GitRepository) : ViewModel() {
@@ -17,6 +17,7 @@ class MainViewModel @Inject constructor(gitRepository: GitRepository) : ViewMode
 
     private val repoSourceFactory =
         RepoDataSourceFactory(repository = gitRepository, scope = viewModelScope)
+
     val repoList: LiveData<PagedList<Repo>> =
         LivePagedListBuilder(repoSourceFactory, pagedListConfig()).build()
 

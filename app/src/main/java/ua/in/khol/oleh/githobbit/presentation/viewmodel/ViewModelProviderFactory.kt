@@ -1,8 +1,8 @@
-package ua.`in`.khol.oleh.githobbit.viewmodel
+package ua.`in`.khol.oleh.githobbit.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ua.`in`.khol.oleh.githobbit.github.GitRepository
+import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
 
 class ViewModelProviderFactory(private val gitRepository: GitRepository) :
     ViewModelProvider.Factory {

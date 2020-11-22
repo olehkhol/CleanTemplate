@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.view
+package ua.`in`.khol.oleh.githobbit.presentation.view
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

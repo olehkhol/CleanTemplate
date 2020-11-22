@@ -2,7 +2,7 @@ package ua.`in`.khol.oleh.githobbit
 
 import org.junit.Assert
 import org.junit.Test
-import ua.`in`.khol.oleh.githobbit.data.Repo
+import ua.`in`.khol.oleh.githobbit.domain.Repo
 
 const val OWNER_NAME = "olehkhol"
 const val OWNER_IMAGE = "owner_image.png"

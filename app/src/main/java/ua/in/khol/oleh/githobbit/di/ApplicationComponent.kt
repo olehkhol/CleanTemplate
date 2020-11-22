@@ -1,7 +1,7 @@
 package ua.`in`.khol.oleh.githobbit.di
 
 import dagger.Component
-import ua.`in`.khol.oleh.githobbit.view.MainView
+import ua.`in`.khol.oleh.githobbit.presentation.view.MainView
 import javax.inject.Singleton
 
 @Singleton

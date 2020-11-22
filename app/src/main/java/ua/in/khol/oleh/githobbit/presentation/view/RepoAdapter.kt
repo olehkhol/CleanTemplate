@@ -1,11 +1,11 @@
-package ua.`in`.khol.oleh.githobbit.view
+package ua.`in`.khol.oleh.githobbit.presentation.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import ua.`in`.khol.oleh.githobbit.data.Repo
+import ua.`in`.khol.oleh.githobbit.domain.Repo
 import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
 
 class RepoAdapter : PagedListAdapter<Repo, RepoAdapter.MainViewHolder>(DIFF_CALLBACK) {

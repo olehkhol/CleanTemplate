@@ -1,8 +1,8 @@
-package ua.`in`.khol.oleh.githobbit.github
+package ua.`in`.khol.oleh.githobbit.data.github
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ua.`in`.khol.oleh.githobbit.github.dacl.SearchResponse
+import ua.`in`.khol.oleh.githobbit.data.github.dacl.SearchResponse
 
 interface GitService {
 
