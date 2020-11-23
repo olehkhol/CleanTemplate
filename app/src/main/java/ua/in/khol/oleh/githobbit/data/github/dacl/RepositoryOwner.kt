@@ -1,6 +1,9 @@
 package ua.`in`.khol.oleh.githobbit.data.github.dacl
 
-data class Owner(
+import com.google.gson.annotations.SerializedName
+
+data class RepositoryOwner(
+    @SerializedName("avatar_url")
     val avatar_url: String,
     val events_url: String,
     val followers_url: String,
@@ -9,6 +12,7 @@ data class Owner(
     val gravatar_id: String,
     val html_url: String,
     val id: Int,
+    @SerializedName("login")
     val login: String,
     val node_id: String,
     val organizations_url: String,

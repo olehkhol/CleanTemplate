@@ -6,19 +6,19 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
-import ua.`in`.khol.oleh.githobbit.domain.Repository
-import ua.`in`.khol.oleh.githobbit.domain.paging.RepositoryDataSourceFactory
+import ua.`in`.khol.oleh.githobbit.domain.Subscriber
+import ua.`in`.khol.oleh.githobbit.domain.paging.SubscriberDataSourceFactory
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(gitRepository: GitRepository) : ViewModel() {
+class DetailViewModel @Inject constructor(gitRepository: GitRepository) : ViewModel() {
     companion object {
-        private const val PAGE_SIZE = 5
+        private const val PAGE_SIZE = 10
     }
 
     private val dataSourceFactory =
-        RepositoryDataSourceFactory(repository = gitRepository, scope = viewModelScope)
+        SubscriberDataSourceFactory(repository = gitRepository, scope = viewModelScope)
 
-    val repositoryList: LiveData<PagedList<Repository>> =
+    val subscriberList: LiveData<PagedList<Subscriber>> =
         LivePagedListBuilder(dataSourceFactory, pagedListConfig()).build()
 
     private fun pagedListConfig() = PagedList.Config.Builder()
@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(gitRepository: GitRepository) : ViewMode
         .setPageSize(PAGE_SIZE)
         .build()
 
-    fun searchRepos(query: String) {
-        dataSourceFactory.setQuery(query)
+    fun getSubscribers(owner: String, repo: String) {
+        dataSourceFactory.setOwnerAndRepo(owner, repo)
     }
 }

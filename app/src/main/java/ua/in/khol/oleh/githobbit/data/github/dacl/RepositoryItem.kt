@@ -1,6 +1,8 @@
 package ua.`in`.khol.oleh.githobbit.data.github.dacl
 
-data class Item(
+import com.google.gson.annotations.SerializedName
+
+data class RepositoryItem(
     val archive_url: String,
     val archived: Boolean,
     val assignees_url: String,
@@ -16,12 +18,14 @@ data class Item(
     val created_at: String,
     val default_branch: String,
     val deployments_url: String,
+    @SerializedName("description")
     val description: String?,
     val disabled: Boolean,
     val downloads_url: String,
     val events_url: String,
     val fork: Boolean,
     val forks: Int,
+    @SerializedName("forks_count")
     val forks_count: Int,
     val forks_url: String,
     val full_name: String,
@@ -37,6 +41,7 @@ data class Item(
     val homepage: Any?,
     val hooks_url: String,
     val html_url: String,
+    @SerializedName("id")
     val id: Int,
     val issue_comment_url: String,
     val issue_events_url: String,
@@ -49,12 +54,14 @@ data class Item(
     val merges_url: String,
     val milestones_url: String,
     val mirror_url: Any?,
+    @SerializedName("name")
     val name: String,
     val node_id: String,
     val notifications_url: String,
     val open_issues: Int,
     val open_issues_count: Int,
-    val owner: Owner,
+    @SerializedName("owner")
+    val owner: RepositoryOwner,
     val `private`: Boolean,
     val pulls_url: String,
     val pushed_at: String,
@@ -62,6 +69,7 @@ data class Item(
     val score: Double,
     val size: Int,
     val ssh_url: String,
+    @SerializedName("stargazers_count")
     val stargazers_count: Int,
     val stargazers_url: String,
     val statuses_url: String,
@@ -75,4 +83,5 @@ data class Item(
     val url: String,
     val watchers: Int,
     val watchers_count: Int
+
 )

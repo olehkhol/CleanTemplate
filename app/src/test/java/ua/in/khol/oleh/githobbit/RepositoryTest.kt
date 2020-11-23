@@ -2,18 +2,18 @@ package ua.`in`.khol.oleh.githobbit
 
 import org.junit.Assert
 import org.junit.Test
-import ua.`in`.khol.oleh.githobbit.domain.Repo
+import ua.`in`.khol.oleh.githobbit.domain.Repository
 
 const val OWNER_NAME = "olehkhol"
 const val OWNER_IMAGE = "owner_image.png"
 const val REPO_NAME = "GitHobbit"
 const val STARS_COUNT = 5
 
-class RepoTest {
+class RepositoryTest {
 
     @Test
     fun repoDataClass_checkDestructuring() {
-        val (ownerName, ownerIMAGE, repoName, starsCount) = Repo(
+        val (ownerName, ownerIMAGE, repoName, starsCount) = Repository(
             ownerName = OWNER_NAME,
             ownerImage = OWNER_IMAGE,
             repoName = REPO_NAME,
@@ -28,7 +28,7 @@ class RepoTest {
 
     @Test
     fun repoDataClass_checkCoping() {
-        val repo = Repo(
+        val repo = Repository(
             ownerName = OWNER_NAME,
             ownerImage = OWNER_IMAGE,
             repoName = REPO_NAME,

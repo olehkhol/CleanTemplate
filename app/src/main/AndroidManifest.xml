@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHobbit">
-        <activity
-            android:name="ua.in.khol.oleh.githobbit.presentation.view.MainView">
+        <activity android:name="ua.in.khol.oleh.githobbit.presentation.view.MainView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.view.DetailView" />
     </application>
 
 </manifest>

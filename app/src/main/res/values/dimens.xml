@@ -6,6 +6,7 @@
     <dimen name="elevation">4dp</dimen>
     <dimen name="padding">4dp</dimen>
     <dimen name="margin">4dp</dimen>
-    <dimen name="star_size">24dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
     <dimen name="text_size">18sp</dimen>
+    <dimen name="image_size_half">32dp</dimen>
 </resources>

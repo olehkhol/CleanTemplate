@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="subscriber"
+            type="ua.in.khol.oleh.githobbit.domain.Subscriber" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:cardElevation="@dimen/elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding">
+
+            <ImageView
+                android:id="@+id/subscriberImage"
+                android:layout_width="@dimen/image_size_half"
+                android:layout_height="@dimen/image_size_half"
+                bind:setImageUrl="@{subscriber.image}" />
+
+            <TextView
+                android:id="@+id/subscriberName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin"
+                android:gravity="center"
+                android:text="@{subscriber.name}"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

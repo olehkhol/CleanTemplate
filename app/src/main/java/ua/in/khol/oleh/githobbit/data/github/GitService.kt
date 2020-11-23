@@ -1,8 +1,10 @@
 package ua.`in`.khol.oleh.githobbit.data.github
 
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
-import ua.`in`.khol.oleh.githobbit.data.github.dacl.SearchResponse
+import ua.`in`.khol.oleh.githobbit.data.github.dacl.SearchRepositoryResponse
+import ua.`in`.khol.oleh.githobbit.data.github.dacl.SubscriberItem
 
 interface GitService {
 
@@ -12,5 +14,15 @@ interface GitService {
         @Query("q") q: String,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): SearchResponse
+    ): SearchRepositoryResponse
+
+
+    // "https://api.github.com/repos/open-android/Android/subscribers"
+    @GET("repos/{owner}/{repo}/subscribers")
+    suspend fun getSubscribers(
+        @Path("owner") owner: String,
+        @Path("repo") repo: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): ArrayList<SubscriberItem>
 }

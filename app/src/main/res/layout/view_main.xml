@@ -9,7 +9,7 @@
         tools:context=".presentation.view.MainView">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/repositoryRecycler"
+            android:id="@+id/repositories_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
