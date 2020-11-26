@@ -10,7 +10,8 @@ import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
 import ua.`in`.khol.oleh.githobbit.domain.Repository
 import ua.`in`.khol.oleh.githobbit.presentation.view.events.SingleLiveEvent
 
-class RepositoryAdapter : PagedListAdapter<Repository, RepositoryAdapter.RepoViewHolder>(DIFF_CALLBACK) {
+class RepositoryAdapter :
+    PagedListAdapter<Repository, RepositoryAdapter.RepoViewHolder>(DIFF_CALLBACK) {
 
     val clickedItem: SingleLiveEvent<Repository> = SingleLiveEvent()
 

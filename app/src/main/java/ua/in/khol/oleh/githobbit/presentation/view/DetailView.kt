@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewDetailBinding
+import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
 import ua.`in`.khol.oleh.githobbit.domain.Repository
 import ua.`in`.khol.oleh.githobbit.presentation.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.presentation.view.adapters.SubscriberAdapter
@@ -24,7 +24,7 @@ class DetailView : AppCompatActivity() {
     private lateinit var subscriberAdapter: SubscriberAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as MainApplication).appComponent.inject(this)
+        ApplicationInjector.get().inject(this)
         super.onCreate(savedInstanceState)
 
         val binding: ViewDetailBinding =

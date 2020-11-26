@@ -5,18 +5,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
 import ua.`in`.khol.oleh.githobbit.domain.Repository
 import ua.`in`.khol.oleh.githobbit.domain.paging.RepositoryDataSourceFactory
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(gitRepository: GitRepository) : ViewModel() {
+class MainViewModel @Inject constructor() : ViewModel() {
     companion object {
         private const val PAGE_SIZE = 5
     }
 
     private val dataSourceFactory =
-        RepositoryDataSourceFactory(repository = gitRepository, scope = viewModelScope)
+        RepositoryDataSourceFactory(scope = viewModelScope)
 
     val repositoryList: LiveData<PagedList<Repository>> =
         LivePagedListBuilder(dataSourceFactory, pagedListConfig()).build()

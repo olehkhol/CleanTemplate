@@ -3,19 +3,25 @@ package ua.`in`.khol.oleh.githobbit.domain.paging
 import androidx.paging.PageKeyedDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
 import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
 import ua.`in`.khol.oleh.githobbit.domain.Repository
+import javax.inject.Inject
 
 class RepositoryDataSource(
     private val query: String,
-    private val gitRepository: GitRepository,
     private val coroutineScope: CoroutineScope
 ) : PageKeyedDataSource<Int, Repository>() {
+
+    @Inject
+    lateinit var gitRepository: GitRepository
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, Repository>
     ) {
+        ApplicationInjector.get().inject(this)
+
         if (query.isNotBlank())
             coroutineScope.launch {
                 val repos = gitRepository.search(query, 1, params.requestedLoadSize)

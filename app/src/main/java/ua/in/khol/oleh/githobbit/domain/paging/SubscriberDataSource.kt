@@ -4,19 +4,25 @@ import androidx.paging.PageKeyedDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ua.`in`.khol.oleh.githobbit.data.github.GitRepository
+import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
 import ua.`in`.khol.oleh.githobbit.domain.Subscriber
+import javax.inject.Inject
 
 class SubscriberDataSource(
     private val owner: String,
     private val repo: String,
-    private val gitRepository: GitRepository,
     private val coroutineScope: CoroutineScope
 ) : PageKeyedDataSource<Int, Subscriber>() {
+
+    @Inject
+    lateinit var gitRepository: GitRepository
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, Subscriber>
     ) {
+        ApplicationInjector.get().inject(this)
+
         if (owner.isNotBlank() && repo.isNotBlank())
             coroutineScope.launch {
                 val subscribers = gitRepository.get(owner, repo, 1, params.requestedLoadSize)

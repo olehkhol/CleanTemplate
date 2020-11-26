@@ -25,7 +25,7 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideViewModelProviderFactory(gitRepository: GitRepository): ViewModelProviderFactory {
-        return ViewModelProviderFactory(gitRepository)
+    fun provideViewModelProviderFactory(): ViewModelProviderFactory {
+        return ViewModelProviderFactory()
     }
 }
