@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e577d7be-95e0-4975-a197-b9bd2bd71aac" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Interface" />
+        <option value="JUnit3 Test Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../git_hobbit.jks" />
+    <option name="KEY_ALIAS" value="githobbit" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="clean" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jqLrYVVgS59BPUVkGPmMeDQKtK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ApkExportedModule" value="GitHobbit.app" />
+    <property name="BundleExportedModule" value="GitHobbit.app" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_30" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-23T17:46:01.767Z" />
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="android-custom-view/home/oleh/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.2.0/13e8ff89631c2e101eb6bddd12c2fb4bbd74b15d/appcompat-1.2.0-sources.jar!/androidx/appcompat/widget/SearchView.java_SELECTED" value="SearchView" />
+    <property name="android-custom-view/home/oleh/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/androidTest/java/ua/in/khol/oleh/githobbit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AndroidArchitectureSample-master" />
+    <property name="multi-representation-preview/home/oleh/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.2.0/13e8ff89631c2e101eb6bddd12c2fb4bbd74b15d/appcompat-1.2.0-sources.jar!/androidx/appcompat/widget/SearchView.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/home/oleh/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="ua.in.khol.oleh.githobbit.di" />
+      <recent name="ua.in.khol.oleh.githobbit.presentation" />
+      <recent name="ua.in.khol.oleh.githobbit.domain" />
+      <recent name="ua.in.khol.oleh.githobbit.model" />
+      <recent name="ua.in.khol.oleh.githobbit.data" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="ua.in.khol.oleh.githobbit.data.github" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ua.in.khol.oleh.githobbit.data" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="ua.in.khol.oleh.githobbit.presentation.view.adapters" />
+      <recent name="ua.in.khol.oleh.githobbit.domain.paging" />
+      <recent name="ua.in.khol.oleh.githobbit.presentation.viewmodel" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="android.template.320284203">
+      <recent name="ua.in.khol.oleh.githobbit" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ua.in.khol.oleh.githobbit.presentation.view" />
+      <recent name="ua.in.khol.oleh.githobbit.presentation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/values" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/ua/in/khol/oleh/githobbit/presentation/adapters" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/ua/in/khol/oleh/githobbit/network/joda" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/ua/in/khol/oleh/githobbit/network" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="GitRetrofitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHobbit.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ua.in.khol.oleh.githobbit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ua.in.khol.oleh.githobbit" />
+      <option name="MAIN_CLASS_NAME" value="ua.in.khol.oleh.githobbit.GitRetrofitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GitRetrofitTest.gitRetrofit_checkServiceCreated" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHobbit.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ua.in.khol.oleh.githobbit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ua.in.khol.oleh.githobbit" />
+      <option name="MAIN_CLASS_NAME" value="ua.in.khol.oleh.githobbit.GitRetrofitTest" />
+      <option name="METHOD_NAME" value="gitRetrofit_checkServiceCreated" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="GitHobbit.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoTest.repoDataClass_checkCoping" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHobbit.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ua.in.khol.oleh.githobbit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ua.in.khol.oleh.githobbit" />
+      <option name="MAIN_CLASS_NAME" value="ua.in.khol.oleh.githobbit.RepoTest" />
+      <option name="METHOD_NAME" value="repoDataClass_checkCoping" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoTest.repoDataClass_checkDestructuring" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHobbit.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ua.in.khol.oleh.githobbit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ua.in.khol.oleh.githobbit" />
+      <option name="MAIN_CLASS_NAME" value="ua.in.khol.oleh.githobbit.RepoTest" />
+      <option name="METHOD_NAME" value="repoDataClass_checkDestructuring" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.GitRetrofitTest.gitRetrofit_checkServiceCreated" />
+        <item itemvalue="Android JUnit.GitRetrofitTest" />
+        <item itemvalue="Android JUnit.GitRetrofitTest.gitRetrofit_checkServiceCreated" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e577d7be-95e0-4975-a197-b9bd2bd71aac" name="Default Changelist" comment="" />
+      <created>1604526874130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604526874130</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial sync with remote">
+      <created>1604527068506</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604527068506</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge branch 'master' of https://github.com/olehkhol/GitHobbit&#10;&#10;# Conflicts:&#10;#&#9;.gitignore">
+      <created>1604593946708</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604593946708</updated>
+    </task>
+    <task id="LOCAL-00003" summary="From Laptop:base functionality ith MVVM">
+      <created>1605203304756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605203304756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="From Laptop:adda unit tests for Retrofit and Repo data class">
+      <created>1605457753421</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605457753421</updated>
+    </task>
+    <task id="LOCAL-00005" summary="From Laptop:&#10;Added coroutines to MainViewModel&#10;Modified GitService for coroutines&#10;Added an exception handling for network responses&#10;Fixed a race-condition bug for the algorithm to search for more repositories">
+      <created>1605893585008</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605893585008</updated>
+    </task>
+    <task id="LOCAL-00006" summary="From Laptop:&#10;Added Android Paging v.2">
+      <created>1605997582524</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605997582524</updated>
+    </task>
+    <task id="LOCAL-00007" summary="From Laptop:&#10;Refactored from MVVM to Mostly Clean Architecture :)">
+      <created>1606069623021</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606069623021</updated>
+    </task>
+    <task id="LOCAL-00008" summary="From Laptop:&#10;Release version 1.0&#10;Added detail activity&#10;Added proguard obfuscation rules for release">
+      <created>1606162728595</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606162728595</updated>
+    </task>
+    <task id="LOCAL-00009" summary="From Laptop:&#10;Release version 1.2&#10;Added a new launcher icon">
+      <created>1606165988384</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606165988384</updated>
+    </task>
+    <task id="LOCAL-00010" summary="From Laptop:&#10;Added global singleton ApplicationInjector&#10;Replaced hard link to GitRepository in the domain layer with dependency injection">
+      <created>1606423130289</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606423130289</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Initial sync with remote" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/olehkhol/GitHobbit&#10;&#10;# Conflicts:&#10;#&#9;.gitignore&#10;&#10;FIXED" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/olehkhol/GitHobbit&#10;&#10;# Conflicts:&#10;#&#9;.gitignore" />
+    <MESSAGE value="From Laptop:base functionality ith MVVM" />
+    <MESSAGE value="From Laptop:adda unit tests for Retrofit and Repo data class" />
+    <MESSAGE value="From Laptop:&#10;Added coroutines to MainViewModel&#10;Modified GitService for coroutines&#10;Added an exception handling for network responses&#10;Fixed a race-condition bug for the algorithm to search for more repositories" />
+    <MESSAGE value="From Laptop:&#10;Added Android Paging v.2" />
+    <MESSAGE value="From Laptop:&#10;Refactored from MVVM to Mostly Clean Architecture :)" />
+    <MESSAGE value="From Laptop:&#10;Release version 1.0&#10;Added detail activity&#10;Added proguard obfuscation rules for release" />
+    <MESSAGE value="From Laptop:&#10;Release version 1.2&#10;Added a new launcher icon" />
+    <MESSAGE value="From Laptop:&#10;Added global singleton ApplicationInjector&#10;Replaced hard link to GitRepository in the domain layer with dependency injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="From Laptop:&#10;Added global singleton ApplicationInjector&#10;Replaced hard link to GitRepository in the domain layer with dependency injection" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="271" y="271" width="409" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1606123239949">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="271" y="271" width="409" height="557" key="#com.intellij.ide.util.MemberChooser/0.25.1920.1055@0.25.1920.1055" timestamp="1606123239949" />
+    <state x="296" y="478" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1606075445879">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="296" y="478" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606075445879" />
+    <state x="1158" y="433" width="639" height="229" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1606075447331">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="1158" y="433" width="639" height="229" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.25.1920.1055@0.25.1920.1055" timestamp="1606075447331" />
+    <state x="580" y="80" width="743" height="935" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606158813468">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="580" y="80" width="743" height="935" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606158813468" />
+    <state x="213" y="302" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604951035420">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="213" y="302" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1604951035420" />
+    <state x="262" y="344" width="635" height="412" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1606421690101">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="262" y="344" width="635" height="412" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606421690101" />
+    <state x="686" y="387" width="565" height="327" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606422751229">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="686" y="387" width="565" height="327" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.25.1920.1055@0.25.1920.1055" timestamp="1606422751229" />
+    <state x="99" y="125" width="1722" height="856" key="AVDManager" timestamp="1606137699765">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="99" y="125" width="1722" height="856" key="AVDManager/0.25.1920.1055@0.25.1920.1055" timestamp="1606137699765" />
+    <state x="55" y="310" width="826" height="479" key="AndroidCreateResourceFileDialog" timestamp="1604956482495">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="55" y="310" width="826" height="479" key="AndroidCreateResourceFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1604956482495" />
+    <state x="321" y="362" width="309" height="375" key="AndroidCreateXmlResourceDialog" timestamp="1606129552991">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="321" y="362" width="309" height="375" key="AndroidCreateXmlResourceDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606129552991" />
+    <state x="199" y="301" width="554" height="498" key="AndroidProcessChooserDialog" timestamp="1606135953119">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="199" y="301" width="554" height="498" key="AndroidProcessChooserDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606135953119" />
+    <state x="605" y="157" width="749" height="871" key="CommitChangelistDialog2" timestamp="1606423130129">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="605" y="157" width="749" height="871" key="CommitChangelistDialog2/0.25.1920.1055@0.25.1920.1055" timestamp="1606423130129" />
+    <state x="99" y="125" width="1722" height="856" key="DiffContextDialog" timestamp="1606421905914">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="99" y="125" width="1722" height="856" key="DiffContextDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606421905914" />
+    <state x="259" y="308" width="426" height="479" key="FileChooserDialogImpl" timestamp="1606258826709">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="259" y="308" width="426" height="479" key="FileChooserDialogImpl/0.25.1920.1055@0.25.1920.1055" timestamp="1606258826709" />
+    <state width="1874" height="274" key="GridCell.Tab.0.bottom" timestamp="1606423167272">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1606423167272" />
+    <state width="1874" height="274" key="GridCell.Tab.0.center" timestamp="1606423167271">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="274" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1606423167271" />
+    <state width="1874" height="274" key="GridCell.Tab.0.left" timestamp="1606423167270">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="274" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1606423167270" />
+    <state width="1874" height="274" key="GridCell.Tab.0.right" timestamp="1606423167271">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="274" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1606423167271" />
+    <state width="1874" height="255" key="GridCell.Tab.1.bottom" timestamp="1606421779640">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="255" key="GridCell.Tab.1.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1606421779640" />
+    <state width="1874" height="255" key="GridCell.Tab.1.center" timestamp="1606421779639">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="255" key="GridCell.Tab.1.center/0.25.1920.1055@0.25.1920.1055" timestamp="1606421779639" />
+    <state width="1874" height="255" key="GridCell.Tab.1.left" timestamp="1606421779639">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="255" key="GridCell.Tab.1.left/0.25.1920.1055@0.25.1920.1055" timestamp="1606421779639" />
+    <state width="1874" height="255" key="GridCell.Tab.1.right" timestamp="1606421779639">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="255" key="GridCell.Tab.1.right/0.25.1920.1055@0.25.1920.1055" timestamp="1606421779639" />
+    <state x="543" y="299" width="826" height="503" key="IDE.errors.dialog" timestamp="1605996419567">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="543" y="299" width="826" height="503" key="IDE.errors.dialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605996419567" />
+    <state x="0" y="25" width="1920" height="1055" key="MergeDialog" timestamp="1605458088693">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="0" y="25" width="1920" height="1055" key="MergeDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605458088693" />
+    <state x="297" y="136" width="1016" height="648" key="MultipleFileMergeDialog" timestamp="1605458088700">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="297" y="136" width="1016" height="648" key="MultipleFileMergeDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605458088700" />
+    <state x="744" y="248" width="423" height="605" key="RollbackChangesDialog" timestamp="1606420195383">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="744" y="248" width="423" height="605" key="RollbackChangesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606420195383" />
+    <state x="0" y="25" width="1920" height="1055" key="SettingsEditor" timestamp="1606083029949">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="0" y="25" width="1920" height="1055" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1606083029949" />
+    <state x="766" y="437" width="379" height="227" key="VCS.ChangelistChooser" timestamp="1606165908468">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="766" y="437" width="379" height="227" key="VCS.ChangelistChooser/0.25.1920.1055@0.25.1920.1055" timestamp="1606165908468" />
+    <state x="555" y="275" width="802" height="550" key="Vcs.Push.Dialog.v2" timestamp="1606423303944">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="555" y="275" width="802" height="550" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1606423303943" />
+    <state x="283" y="330" width="376" height="434" key="chooseDestDirectoryDialog" timestamp="1605387946576">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="283" y="330" width="376" height="434" key="chooseDestDirectoryDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605387946576" />
+    <state x="186" y="296" width="587" height="512" key="find.popup" timestamp="1606208116645">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="186" y="296" width="587" height="512" key="find.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1606208116645" />
+    <state x="691" y="343" width="537" height="415" key="git4idea.merge.GitPullDialog" timestamp="1606423220635">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="691" y="343" width="537" height="415" key="git4idea.merge.GitPullDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1606423220635" />
+    <state x="252" y="287" width="447" height="525" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1605387946638">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="252" y="287" width="447" height="525" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605387946638" />
+    <state x="316" y="326" width="303" height="448" key="refactoring.ChangeSignatureDialog" timestamp="1605988369285">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="316" y="326" width="303" height="448" key="refactoring.ChangeSignatureDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1605988369285" />
+    <state x="623" y="255" key="run.anything.popup" timestamp="1606422841955">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="623" y="255" key="run.anything.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1606422841955" />
+    <state x="623" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1605991349644">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="623" y="258" width="672" height="678" key="search.everywhere.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1605991349644" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-field">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ua/in/khol/oleh/githobbit/viewmodel/MainViewModel.kt</url>
+          <line>13</line>
+          <properties myFieldName="VISIBLE_THRESHOLD" myClassName="ua.in.khol.oleh.githobbit.viewmodel.MainViewModel.Companion" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
