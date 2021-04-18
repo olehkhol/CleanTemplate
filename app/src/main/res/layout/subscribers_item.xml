@@ -5,7 +5,7 @@
 
         <variable
             name="subscriber"
-            type="ua.in.khol.oleh.githobbit.domain.Subscriber" />
+            type="ua.in.khol.oleh.githobbit.domain.models.Subscriber" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

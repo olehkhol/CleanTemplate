@@ -1,21 +1,21 @@
-package ua.`in`.khol.oleh.githobbit.domain.paging
+package ua.`in`.khol.oleh.githobbit.data.paging
 
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import kotlinx.coroutines.CoroutineScope
-import ua.`in`.khol.oleh.githobbit.domain.Subscriber
+import ua.`in`.khol.oleh.githobbit.domain.models.Subscriber
+import javax.inject.Inject
 
-class SubscriberDataSourceFactory(
+class SubscriberDataSourceFactory @Inject constructor(
     private var owner: String = "",
     private var repo: String = "",
     private val scope: CoroutineScope
 ) : DataSource.Factory<Int, Subscriber>() {
 
-    private val sourceLiveData = MutableLiveData<SubscriberDataSource>()
+    private lateinit var sourceLiveData: SubscriberDataSource
 
     override fun create(): DataSource<Int, Subscriber> {
         val subscribeDataSource = SubscriberDataSource(owner, repo, scope)
-        sourceLiveData.postValue(subscribeDataSource)
+        sourceLiveData = subscribeDataSource
 
         return subscribeDataSource
     }
@@ -24,6 +24,6 @@ class SubscriberDataSourceFactory(
         this.owner = owner
         this.repo = repo
 
-        sourceLiveData.value?.refresh()
+        sourceLiveData.refresh()
     }
 }

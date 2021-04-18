@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import ua.`in`.khol.oleh.githobbit.domain.Subscriber
-import ua.`in`.khol.oleh.githobbit.domain.paging.SubscriberDataSourceFactory
+import ua.`in`.khol.oleh.githobbit.domain.models.Subscriber
+import ua.`in`.khol.oleh.githobbit.data.paging.SubscriberDataSourceFactory
 import javax.inject.Inject
 
 class DetailViewModel @Inject constructor() : ViewModel() {

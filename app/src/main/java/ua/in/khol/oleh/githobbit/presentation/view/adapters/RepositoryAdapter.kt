@@ -7,7 +7,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
-import ua.`in`.khol.oleh.githobbit.domain.Repository
+import ua.`in`.khol.oleh.githobbit.domain.models.Repository
 import ua.`in`.khol.oleh.githobbit.presentation.view.events.SingleLiveEvent
 
 class RepositoryAdapter :

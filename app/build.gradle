@@ -5,17 +5,18 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "ua.in.khol.oleh.githobbit"
-        minSdkVersion 21
-        targetSdkVersion 30
+        applicationId 'ua.in.khol.oleh.githobbit'
         versionCode 3
-        versionName "1.2"
+        versionName '1.2'
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildFeatures {
@@ -24,8 +25,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -41,43 +42,34 @@ android {
 }
 
 dependencies {
+    implementation project(':data')
+    implementation project(':domain')
 
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.10'
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.activity:activity-ktx:1.1.0"
-    implementation 'androidx.fragment:fragment-ktx:1.2.5'
-    implementation 'androidx.lifecycle:lifecycle-common:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
+    implementation "androidx.core:core-ktx:${androidx.core}"
+    implementation "androidx.appcompat:appcompat:${androidx.appcompat}"
+    implementation "androidx.constraintlayout:constraintlayout:${androidx.constraint}"
+    implementation "androidx.activity:activity-ktx:${androidx.activity}"
+    implementation "androidx.fragment:fragment-ktx:${androidx.fragment}"
+    implementation "androidx.lifecycle:lifecycle-common:${androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${androidx.lifecycle}"
+    implementation "androidx.paging:paging-runtime-ktx:${androidx.paging}"
+    implementation "androidx.room:room-runtime:${androidx.room}"
+    kapt "androidx.room:room-compiler:${androidx.room}"
+    implementation "androidx.room:room-ktx:${androidx.room}"
 
-    implementation "androidx.room:room-runtime:2.2.5"
-    kapt "androidx.room:room-compiler:2.2.5"
-    implementation "androidx.room:room-ktx:2.2.5"
+    implementation "com.google.android.material:material:${google.material}"
+    implementation "com.google.dagger:dagger:${google.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${google.dagger}"
 
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.google.dagger:dagger:2.29.1'
-    kapt 'com.google.dagger:dagger-compiler:2.29.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
 
-    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "com.squareup.picasso:picasso:${squareup.picasso}"
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
+    testImplementation "junit:junit:$junit"
+    testImplementation "androidx.room:room-testing:${androidx.room}"
 
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation "androidx.room:room-testing:2.2.5"
-
-    androidTestImplementation 'androidx.test:core:1.3.0'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.ext:truth:1.3.0'
-    androidTestImplementation 'com.google.truth:truth:1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "androidx.test.ext:junit:${androidx.test.ext}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${androidx.test.espresso}"
 }

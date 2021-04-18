@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation "androidx.core:core-ktx:${androidx.core}"
+    implementation "androidx.appcompat:appcompat:${androidx.appcompat}"
+    implementation "androidx.paging:paging-runtime-ktx:${androidx.paging}"
+
+    implementation "com.squareup.retrofit2:retrofit:${squareup.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${squareup.retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${squareup.okhttp}"
+
+    implementation "com.google.android.material:material:${google.material}"
+    implementation "com.google.dagger:dagger:${google.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${google.dagger}"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+
+    testImplementation "junit:junit:$junit"
+
+    androidTestImplementation "androidx.test.ext:junit:${androidx.test.ext}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${androidx.test.espresso}"
+}

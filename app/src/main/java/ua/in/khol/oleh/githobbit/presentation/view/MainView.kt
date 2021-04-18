@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewMainBinding
 import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
-import ua.`in`.khol.oleh.githobbit.domain.Repository
+import ua.`in`.khol.oleh.githobbit.domain.models.Repository
 import ua.`in`.khol.oleh.githobbit.presentation.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.presentation.view.adapters.RepositoryAdapter
 import ua.`in`.khol.oleh.githobbit.presentation.viewmodel.MainViewModel
@@ -22,10 +22,10 @@ import javax.inject.Inject
 class MainView : AppCompatActivity() {
 
     @Inject
-    lateinit var viewModelProviderFactory: ViewModelProviderFactory
+    lateinit var factory: ViewModelProviderFactory
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var repositoryAdapter: RepositoryAdapter
+    private lateinit var pagedAdapter: RepositoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ApplicationInjector.get().inject(this)
@@ -34,12 +34,11 @@ class MainView : AppCompatActivity() {
         val binding: ViewMainBinding =
             DataBindingUtil.setContentView(this, R.layout.view_main)
 
-        viewModel = ViewModelProvider(this, viewModelProviderFactory)
-            .get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
 
-        repositoryAdapter = RepositoryAdapter()
-        binding.repositoriesRecycler.apply {
-            adapter = repositoryAdapter
+        pagedAdapter = RepositoryAdapter()
+        binding.recycler.apply {
+            adapter = pagedAdapter
             layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         }
     }
@@ -47,17 +46,17 @@ class MainView : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.repositoryList.observe(this) {
-            repositoryAdapter.submitList(it)
+        viewModel.repositories.observe(this) {
+            pagedAdapter.submitList(it)
         }
-        repositoryAdapter.clickedItem.observe(this) {
-            startDetailActivity(it)
+        pagedAdapter.clickedItem.observe(this) {
+            //startDetailActivity(it)
         }
     }
 
     override fun onStop() {
-        repositoryAdapter.clickedItem.removeObservers(this)
-        viewModel.repositoryList.removeObservers(this)
+        pagedAdapter.clickedItem.removeObservers(this)
+        viewModel.repositories.removeObservers(this)
 
         super.onStop()
     }

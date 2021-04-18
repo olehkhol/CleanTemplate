@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.domain
+package ua.`in`.khol.oleh.githobbit.domain.models
 
 import java.io.Serializable
 

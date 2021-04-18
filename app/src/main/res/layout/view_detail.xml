@@ -5,7 +5,7 @@
 
         <variable
             name="repo"
-            type="ua.in.khol.oleh.githobbit.domain.Repository" />
+            type="ua.in.khol.oleh.githobbit.domain.models.Repository" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewDetailBinding
 import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
-import ua.`in`.khol.oleh.githobbit.domain.Repository
+import ua.`in`.khol.oleh.githobbit.domain.models.Repository
 import ua.`in`.khol.oleh.githobbit.presentation.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.presentation.view.adapters.SubscriberAdapter
 import ua.`in`.khol.oleh.githobbit.presentation.viewmodel.DetailViewModel

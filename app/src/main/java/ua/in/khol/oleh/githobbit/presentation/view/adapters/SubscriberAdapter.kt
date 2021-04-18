@@ -6,7 +6,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ua.`in`.khol.oleh.githobbit.databinding.SubscribersItemBinding
-import ua.`in`.khol.oleh.githobbit.domain.Subscriber
+import ua.`in`.khol.oleh.githobbit.domain.models.Subscriber
 
 class SubscriberAdapter :
     PagedListAdapter<Subscriber, SubscriberAdapter.SubscriberVieHolder>(DIFF_CALLBACK) {
