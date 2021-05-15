@@ -1,55 +1,60 @@
-ext {
-    compileSdkVersion = 30
-    buildToolsVersion = '30.0.3'
-    minSdkVersion = 21
-    targetSdkVersion = 30
-
-    coroutines = '1.4.3'
-    androidx = [
-            core      : '1.3.2',
-            appcompat : '1.2.0',
-            constraint: '2.0.4',
-            activity  : '1.2.2',
-            fragment  : '1.3.2',
-            lifecycle : '2.3.1',
-            paging    : '2.1.2',
-            room      : '2.2.6',
-            test      : [
-                    ext     : '1.1.2',
-                    espresso: '3.3.0'
-            ]
-    ]
-    google = [
-            material: '1.3.0',
-            dagger  : '2.34.1'
-    ]
-    squareup = [
-            retrofit: '2.9.0',
-            okhttp  : '5.0.0-alpha.2',
-            picasso : '2.71828'
-    ]
-    junit = '4.13.2'
-}
-
 buildscript {
+    ext {
+        kotlin_version = '1.5.0'
+        gradle_tool = '4.2.1'
+    }
+
     repositories {
-        jcenter()
         google()
+        mavenCentral()
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31"
+        classpath "com.android.tools.build:gradle:$gradle_tool"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+ext {
+    compileSdkVersion = 30
+    buildToolsVersion = '30.0.3'
+    minSdkVersion = 21
+    targetSdkVersion = 30
+
+    androidx = [
+            activity  : '1.2.3',
+            appcompat : '1.2.0',
+            constraint: '2.0.4',
+            core      : '1.3.2',
+            fragment  : '1.3.3',
+            lifecycle : '2.3.1',
+            paging    : '3.0.0',
+            room      : '2.3.0',
+            test      : [
+                    espresso: '3.3.0',
+                    ext     : '1.1.2'
+            ]
+    ]
+    google = [
+            dagger  : '2.35.1',
+            material: '1.3.0'
+    ]
+    coroutines = '1.4.3'
+    squareup = [
+            okhttp  : '5.0.0-alpha.2',
+            picasso : '2.71828',
+            retrofit: '2.9.0'
+    ]
+    junit = '4.13.2'
+}
+
 allprojects {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
     }
 }
 
