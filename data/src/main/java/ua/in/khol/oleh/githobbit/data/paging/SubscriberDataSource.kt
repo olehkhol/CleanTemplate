@@ -3,8 +3,8 @@ package ua.`in`.khol.oleh.githobbit.data.paging
 import androidx.paging.PageKeyedDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import ua.`in`.khol.oleh.githobbit.domain.models.Subscriber
-import ua.`in`.khol.oleh.githobbit.domain.repositories.GitRepository
+import ua.`in`.khol.oleh.githobbit.domain.entity.Subscriber
+import ua.`in`.khol.oleh.githobbit.domain.repository.contract.GitRepository
 import javax.inject.Inject
 
 class SubscriberDataSource(
@@ -14,7 +14,7 @@ class SubscriberDataSource(
 ) : PageKeyedDataSource<Int, Subscriber>() {
 
     @Inject
-    lateinit var gitRepository: GitRepository
+    lateinit var gitRepository: GitRepository // TODO check why this is 'lateinit' and replace with UseCase
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,

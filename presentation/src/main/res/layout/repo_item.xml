@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="repo"
+            type="ua.in.khol.oleh.githobbit.domain.entity.Repository" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:cardElevation="@dimen/elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/commonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding">
+
+            <ImageView
+                android:id="@+id/ownerImage"
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:setImageUrl="@{repo.ownerImage}" />
+
+            <TextView
+                android:id="@+id/ownerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start|bottom"
+                android:text="@{repo.ownerName}"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toTopOf="@id/repoDescription"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ownerImage" />
+
+            <TextView
+                android:id="@+id/repoDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|end"
+                android:text="@{repo.repoDescription}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ownerName" />
+
+            <TextView
+                android:id="@+id/repoName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|end"
+                android:text="@{repo.repoName}"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/ownerImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/starImage"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:gravity="center"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toTopOf="@id/repoDescription"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/starsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{String.valueOf(repo.starsCount)}"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toTopOf="@id/repoDescription"
+                app:layout_constraintEnd_toStartOf="@id/starImage" />
+
+            <ImageView
+                android:id="@+id/forkImage"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:gravity="center"
+                android:src="@drawable/ic_fork"
+                app:layout_constraintBottom_toTopOf="@id/starImage"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/forksCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{String.valueOf(repo.forksCount)}"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toTopOf="@id/starsCount"
+                app:layout_constraintEnd_toStartOf="@id/forkImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

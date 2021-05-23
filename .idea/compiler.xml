@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="GitHobbit.app" target="11" />
       <module name="GitHobbit.data" target="11" />
+      <module name="GitHobbit.presentation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,7 +2,7 @@ package ua.`in`.khol.oleh.githobbit.data.paging
 
 import androidx.paging.DataSource
 import kotlinx.coroutines.CoroutineScope
-import ua.`in`.khol.oleh.githobbit.domain.models.Subscriber
+import ua.`in`.khol.oleh.githobbit.domain.entity.Subscriber
 import javax.inject.Inject
 
 class SubscriberDataSourceFactory @Inject constructor(

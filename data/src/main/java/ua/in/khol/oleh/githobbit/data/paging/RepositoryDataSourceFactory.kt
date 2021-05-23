@@ -2,8 +2,8 @@ package ua.`in`.khol.oleh.githobbit.data.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import ua.`in`.khol.oleh.githobbit.domain.models.Repository
-import ua.`in`.khol.oleh.githobbit.domain.repositories.GitRepository
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
+import ua.`in`.khol.oleh.githobbit.domain.repository.contract.GitRepository
 import javax.inject.Inject
 
 class RepositoryDataSourceFactory @Inject constructor(

@@ -26,10 +26,10 @@ ext {
 
     androidx = [
             activity  : '1.2.3',
-            appcompat : '1.2.0',
+            appcompat : '1.3.0',
             constraint: '2.0.4',
-            core      : '1.3.2',
-            fragment  : '1.3.3',
+            core      : '1.5.0',
+            fragment  : '1.3.4',
             lifecycle : '2.3.1',
             paging    : '3.0.0',
             room      : '2.3.0',
@@ -42,7 +42,6 @@ ext {
             dagger  : '2.35.1',
             material: '1.3.0'
     ]
-    coroutines = '1.4.3'
     squareup = [
             okhttp  : '5.0.0-alpha.2',
             picasso : '2.71828',

@@ -8,8 +8,8 @@ dependencies {
     implementation "com.google.dagger:dagger:${google.dagger}"
     kapt "com.google.dagger:dagger-compiler:${google.dagger}"
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_version"
 
     testImplementation "junit:junit:$junit"
 }
