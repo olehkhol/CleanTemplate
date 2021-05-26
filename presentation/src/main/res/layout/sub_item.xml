@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="subscriber"
-            type="ua.in.khol.oleh.githobbit.domain.entity.Subscriber" />
+            name="sub"
+            type="ua.in.khol.oleh.githobbit.domain.entity.Sub" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +26,7 @@
                 android:id="@+id/subscriberImage"
                 android:layout_width="@dimen/image_size_half"
                 android:layout_height="@dimen/image_size_half"
-                bind:setImageUrl="@{subscriber.image}" />
+                bind:setImageUrl="@{sub.image}" />
 
             <TextView
                 android:id="@+id/subscriberName"
@@ -35,7 +35,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/margin"
                 android:gravity="center"
-                android:text="@{subscriber.name}"
+                android:text="@{sub.name}"
                 android:textSize="@dimen/text_size" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

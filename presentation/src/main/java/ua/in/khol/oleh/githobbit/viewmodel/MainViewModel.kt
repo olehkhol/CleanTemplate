@@ -1,30 +1,28 @@
 package ua.`in`.khol.oleh.githobbit.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
-import ua.`in`.khol.oleh.githobbit.data.paging.RepositoryDataSourceFactory
-import javax.inject.Inject
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import kotlinx.coroutines.flow.Flow
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.usecase.GetRepos
 
-class MainViewModel @Inject constructor(
-    private val dataSourceFactory: RepositoryDataSourceFactory
-) : ViewModel() {
-    companion object {
-        private const val PAGE_SIZE = 5
-    }
+class MainViewModel(private val getRepos: GetRepos) : ViewModel() {
 
-    private val config = PagedList.Config.Builder()
-        .setPrefetchDistance(3 * PAGE_SIZE)
-        .setEnablePlaceholders(false)
-        .setPageSize(PAGE_SIZE)
-        .build()
+    private var currentQueryValue: String? = null
+    private var currentSearchResult: Flow<PagingData<Repo>>? = null
 
-    val repositories: LiveData<PagedList<Repository>> =
-        LivePagedListBuilder(dataSourceFactory, config).build()
+    fun searchRepo(query: String): Flow<PagingData<Repo>> {
+        val lastResult = currentSearchResult
 
-    fun searchRepos(query: String) {
-        dataSourceFactory.setQuery(query)
+        if (query == currentQueryValue && lastResult != null) return lastResult
+        currentQueryValue = query
+
+        val newResult = getRepos.getSearchResultStream(query)
+            .cachedIn(viewModelScope)
+        currentSearchResult = newResult
+
+        return newResult
     }
 }

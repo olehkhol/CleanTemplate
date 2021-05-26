@@ -5,43 +5,43 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
+import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewDetailBinding
-import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
-import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
-import ua.`in`.khol.oleh.githobbit.view.adapters.SubscriberAdapter
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.view.adapters.SubAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.DetailViewModel
-import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelProviderFactory
+import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 class DetailView : AppCompatActivity() {
 
     @Inject
-    lateinit var viewModelProviderFactory: ViewModelProviderFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
     private lateinit var viewModel: DetailViewModel
-    private lateinit var subscriberAdapter: SubscriberAdapter
+    private lateinit var subAdapter: SubAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ApplicationInjector.get().inject(this)
+        (applicationContext as MainApplication).daggerComponent.inject(this)
         super.onCreate(savedInstanceState)
 
         val binding: ViewDetailBinding =
             DataBindingUtil.setContentView(this, R.layout.view_detail)
 
-        viewModel = ViewModelProvider(this, viewModelProviderFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
             .get(DetailViewModel::class.java)
 
-        subscriberAdapter = SubscriberAdapter()
+        subAdapter = SubAdapter()
         binding.subscribersRecycler.apply {
-            adapter = subscriberAdapter
+            adapter = subAdapter
             layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         }
 
-        (intent.getSerializableExtra(REPO) as Repository).let {
+        (intent.getSerializableExtra(REPO) as Repo).let {
             binding.repo = it
-            viewModel.getSubscribers(it.ownerName, it.repoName)
+//            viewModel.getSubscribers(it.ownerName, it.repoName)
         }
 
     }
@@ -49,14 +49,13 @@ class DetailView : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.subscriberList.observe(this) {
-            subscriberAdapter.submitList(it)
-        }
+//        viewModel.subList.observe(this) {
+//            subscriberAdapter.submitList(it)
     }
 
     override fun onStop() {
-        viewModel.subscriberList.removeObservers(this)
-
+//        viewModel.subList.removeObservers(this)
+//
         super.onStop()
     }
 }

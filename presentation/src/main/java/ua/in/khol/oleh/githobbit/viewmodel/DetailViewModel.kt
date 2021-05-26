@@ -1,33 +1,8 @@
 package ua.`in`.khol.oleh.githobbit.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
-import ua.`in`.khol.oleh.githobbit.domain.entity.Subscriber
-import ua.`in`.khol.oleh.githobbit.data.paging.SubscriberDataSourceFactory
-import javax.inject.Inject
+import ua.`in`.khol.oleh.githobbit.domain.usecase.GetSubs
 
-class DetailViewModel @Inject constructor() : ViewModel() {
-    companion object {
-        private const val PAGE_SIZE = 10
-    }
+class DetailViewModel(repository: GetSubs) : ViewModel() {
 
-    private val dataSourceFactory =
-        SubscriberDataSourceFactory(scope = viewModelScope)
-
-    val subscriberList: LiveData<PagedList<Subscriber>> =
-        LivePagedListBuilder(dataSourceFactory, pagedListConfig()).build()
-
-    private fun pagedListConfig() = PagedList.Config.Builder()
-        .setInitialLoadSizeHint(3 * PAGE_SIZE)
-        .setPrefetchDistance(PAGE_SIZE)
-        .setEnablePlaceholders(false)
-        .setPageSize(PAGE_SIZE)
-        .build()
-
-    fun getSubscribers(owner: String, repo: String) {
-        dataSourceFactory.setOwnerAndRepo(owner, repo)
-    }
 }

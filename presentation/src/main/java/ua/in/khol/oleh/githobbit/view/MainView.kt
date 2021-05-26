@@ -6,69 +6,85 @@ import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
+import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewMainBinding
-import ua.`in`.khol.oleh.githobbit.di.ApplicationInjector
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
-import ua.`in`.khol.oleh.githobbit.view.adapters.RepositoryAdapter
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.view.adapters.RepoAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.MainViewModel
-import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelProviderFactory
+import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelFactory
 import javax.inject.Inject
+
+private const val DEFAULT_QUERY = "Android"
+private const val LAST_SEARCH_QUERY = "last_search_query"
 
 class MainView : AppCompatActivity() {
 
     @Inject
-    lateinit var factory: ViewModelProviderFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var viewModel: MainViewModel
-    private lateinit var pagedAdapter: RepositoryAdapter
+    private lateinit var mainViewModel: MainViewModel
+    private lateinit var mainView: ViewMainBinding
+    private lateinit var repoAdapter: RepoAdapter
+
+    private lateinit var searchQuery: String
+    private var searchJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ApplicationInjector.get().inject(this)
+        (applicationContext as MainApplication).daggerComponent.inject(this)
         super.onCreate(savedInstanceState)
 
-        val binding: ViewMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.view_main)
+        mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+        mainView = ViewMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        repoAdapter = RepoAdapter()
 
-        viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
+        mainView.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        mainView.recyclerView.adapter = repoAdapter
+        mainView.recyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        pagedAdapter = RepositoryAdapter()
-        binding.recycler.apply {
-            adapter = pagedAdapter
-            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
-        }
+        search(savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY)
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        viewModel.repositories.observe(this) {
-            pagedAdapter.submitList(it)
-        }
-        pagedAdapter.clickedItem.observe(this) {
-            //startDetailActivity(it)
-        }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(LAST_SEARCH_QUERY, searchQuery)
     }
 
-    override fun onStop() {
-        pagedAdapter.clickedItem.removeObservers(this)
-        viewModel.repositories.removeObservers(this)
+    override fun onResume() {
+        super.onResume()
 
-        super.onStop()
+        repoAdapter.clickedItem.observe(this) { item -> startDetailActivity(item) }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onPause() {
+        repoAdapter.clickedItem.removeObservers(this)
+
+        super.onPause()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
 
-        (menu?.findItem(R.id.menu_search_view)?.actionView as SearchView).apply {
-            queryHint = getString(R.string.search_hint)
+        // TODO I need to THINK ho to make this much more better
+        (menu.findItem(R.id.menu_search_view)?.actionView as SearchView).apply {
+            queryHint = getString(R.string.query_hint)
             setOnQueryTextListener(object : OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    viewModel.searchRepos(query)
+                    search(query)
                     return true
                 }
 
@@ -81,9 +97,21 @@ class MainView : AppCompatActivity() {
         return true
     }
 
-    private fun startDetailActivity(repository: Repository?) = repository?.let {
+    private fun search(query: String) {
+        searchQuery = query
+        // Make sure we cancel the previous job before creating a new one
+        searchJob?.cancel()
+        searchJob =
+            lifecycleScope.launch {
+                mainViewModel.searchRepo(query).collect {
+                    repoAdapter.submitData(it)
+                }
+            }
+    }
+
+    private fun startDetailActivity(repo: Repo?) = repo?.let {
         val intent = Intent(this, DetailView::class.java)
-        intent.putExtra(REPO, repository)
+        intent.putExtra(REPO, repo)
         startActivity(intent)
     }
 }

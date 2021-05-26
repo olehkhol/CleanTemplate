@@ -1,39 +1,36 @@
 package ua.`in`.khol.oleh.githobbit.view.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
 import ua.`in`.khol.oleh.githobbit.viewmodel.events.SingleLiveEvent
 
-class RepositoryAdapter :
-    PagedListAdapter<Repository, RepositoryAdapter.RepoViewHolder>(DIFF_CALLBACK) {
+class RepoAdapter :
+    PagingDataAdapter<Repo, RepoAdapter.RepoViewHolder>(DIFF_CALLBACK) {
 
-    val clickedItem: SingleLiveEvent<Repository> = SingleLiveEvent()
+    val clickedItem: SingleLiveEvent<Repo> = SingleLiveEvent()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = RepoViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        RepoViewHolder.from(parent)
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
-        getItem(position)?.let {
-            holder.bind(it)
-            holder.itemView.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(p0: View?) {
-                    clickedItem.value = it
-                }
-            })
+        getItem(position)?.let { item ->
+            holder.bind(item)
+            holder.itemView.setOnClickListener { clickedItem.value = item }
         }
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Repository>() {
-            override fun areItemsTheSame(oldItem: Repository, newItem: Repository): Boolean =
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Repo>() {
+
+            override fun areItemsTheSame(oldItem: Repo, newItem: Repo) =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Repository, newItem: Repository): Boolean =
+            override fun areContentsTheSame(oldItem: Repo, newItem: Repo) =
                 oldItem == newItem
         }
     }
@@ -41,8 +38,8 @@ class RepositoryAdapter :
     class RepoViewHolder(private val binding: RepoItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(repository: Repository) {
-            binding.repo = repository
+        fun bind(repo: Repo) {
+            binding.repo = repo
             binding.executePendingBindings()
         }
 

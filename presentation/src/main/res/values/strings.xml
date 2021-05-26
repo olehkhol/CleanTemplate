@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">GitHobbit</string>
-    <string name="search_hint">Repository name</string>
+    <string name="query_hint">Repository name</string>
     <string name="search">Search</string>
 </resources>

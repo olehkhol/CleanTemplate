@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.data.net.github.serialized
+package ua.`in`.khol.oleh.githobbit.data.network.github.serialized
 
 import com.google.gson.annotations.SerializedName
 

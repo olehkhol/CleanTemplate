@@ -1,13 +1,12 @@
 package ua.`in`.khol.oleh.githobbit.data.mapper
 
-import ua.`in`.khol.oleh.githobbit.data.net.github.serialized.RepositoryItem
-import ua.`in`.khol.oleh.githobbit.data.net.github.serialized.SubscriberItem
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repository
-import ua.`in`.khol.oleh.githobbit.domain.entity.Subscriber
-import javax.inject.Inject
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepositoryItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
+import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.entity.Sub
 
-class GitMapper @Inject constructor() {
-    fun asRepository(item: RepositoryItem) = Repository(
+object GitMapper {
+    fun asRepo(item: RepositoryItem) = Repo(
         id = item.id,
         ownerName = item.owner.login,
         ownerImage = item.owner.avatar_url,
@@ -17,7 +16,7 @@ class GitMapper @Inject constructor() {
         forksCount = item.forks_count
     )
 
-    fun asSubscriber(item: SubscriberItem) = Subscriber(
+    fun asSub(item: SubscriberItem) = Sub(
         id = item.id,
         name = item.login,
         image = item.avatar_url

@@ -1,9 +1,7 @@
 package ua.`in`.khol.oleh.githobbit.domain.entity
 
-import java.io.Serializable
-
-data class Subscriber(
+data class Sub(
     val id: Int = 0,
     val name: String = "",
     val image: String = ""
-) : Serializable
+)

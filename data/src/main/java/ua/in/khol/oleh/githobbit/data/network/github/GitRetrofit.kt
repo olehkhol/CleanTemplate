@@ -1,17 +1,20 @@
-package ua.`in`.khol.oleh.githobbit.data.net.github
+package ua.`in`.khol.oleh.githobbit.data.network.github
 
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object GitRetrofit {
-    const val BASE_URL = "https://api.github.com/"
+private const val BASE_URL = "https://api.github.com/"
 
-    val service: GitService = buildRetrofit().create(GitService::class.java)
+class GitRetrofit(private val client: OkHttpClient) {
 
-    private fun buildRetrofit(): Retrofit {
-        return Retrofit.Builder()
+    val service: GitService = build()
+        .create(GitService::class.java)
+
+    private fun build(): Retrofit =
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
 }

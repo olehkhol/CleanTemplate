@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.data.net.github.serialized
+package ua.`in`.khol.oleh.githobbit.data.network.github.serialized
 
 import com.google.gson.annotations.SerializedName
 
@@ -83,5 +83,7 @@ data class RepositoryItem(
     val url: String,
     val watchers: Int,
     val watchers_count: Int
+
+
 
 )

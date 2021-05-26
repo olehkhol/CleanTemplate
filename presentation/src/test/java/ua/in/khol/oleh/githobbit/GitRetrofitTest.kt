@@ -2,7 +2,7 @@ package ua.`in`.khol.oleh.githobbit
 
 import org.junit.Assert
 import org.junit.Test
-import ua.`in`.khol.oleh.githobbit.data.net.github.GitRetrofit
+import ua.`in`.khol.oleh.githobbit.data.network.github.GitRetrofit
 
 class GitRetrofitTest {
 

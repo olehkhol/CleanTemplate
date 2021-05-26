@@ -8,8 +8,12 @@ dependencies {
     implementation "com.google.dagger:dagger:${google.dagger}"
     kapt "com.google.dagger:dagger-compiler:${google.dagger}"
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_version"
+    // alternatively - without Android dependencies for tests
+    // and for 'clean' reason it can be useful for 'domain' layer
+    implementation "androidx.paging:paging-common:${androidx.paging}"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinx.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx.coroutines}"
 
     testImplementation "junit:junit:$junit"
 }
