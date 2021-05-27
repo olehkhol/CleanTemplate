@@ -58,6 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx.coroutines}"
 
     implementation "com.squareup.picasso:picasso:${squareup.picasso}"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${squareup.canary}"
 
     testImplementation "junit:junit:$junit"
     testImplementation "androidx.room:room-testing:${androidx.room}"

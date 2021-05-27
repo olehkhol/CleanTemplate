@@ -46,6 +46,7 @@ ext {
             material: '1.3.0'
     ]
     squareup = [
+            canary  : '2.7',
             okhttp  : '5.0.0-alpha.2',
             picasso : '2.71828',
             retrofit: '2.9.0'

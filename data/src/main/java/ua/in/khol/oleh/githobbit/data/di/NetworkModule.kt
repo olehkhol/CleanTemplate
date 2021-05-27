@@ -13,8 +13,7 @@ class NetworkModule {
 
     @Provides
     fun provideInterceptor(): Interceptor =
-        HttpLoggingInterceptor()
-            .apply { level = HttpLoggingInterceptor.Level.BASIC }
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
 
     @Provides
     fun provideOkHttpClient(interceptor: Interceptor): OkHttpClient =
@@ -22,6 +21,7 @@ class NetworkModule {
             .addInterceptor(interceptor)
             .build()
 
+    @Singleton
     @Provides
     fun provideGitRetrofit(okHttpClient: OkHttpClient) =
         GitRetrofit(okHttpClient)
