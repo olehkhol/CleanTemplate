@@ -101,12 +101,12 @@ class MainView : AppCompatActivity() {
         searchQuery = query
         // Make sure we cancel the previous job before creating a new one
         searchJob?.cancel()
-        searchJob =
-            lifecycleScope.launch {
-                mainViewModel.searchRepo(query).collect {
+        searchJob = lifecycleScope.launch {
+            mainViewModel.searchRepo(query)
+                .collect {
                     repoAdapter.submitData(it)
                 }
-            }
+        }
     }
 
     private fun startDetailActivity(repo: Repo?) = repo?.let {

@@ -14,12 +14,14 @@ class MainViewModel(private val getRepos: GetRepos) : ViewModel() {
     private var currentSearchResult: Flow<PagingData<Repo>>? = null
 
     fun searchRepo(query: String): Flow<PagingData<Repo>> {
-        val lastResult = currentSearchResult
+        val lastResult: Flow<PagingData<Repo>>? = currentSearchResult
 
-        if (query == currentQueryValue && lastResult != null) return lastResult
+        if (query == currentQueryValue && lastResult != null)
+            return lastResult
+
         currentQueryValue = query
 
-        val newResult = getRepos.getSearchResultStream(query)
+        val newResult: Flow<PagingData<Repo>> = getRepos.getSearchResultStream(query)
             .cachedIn(viewModelScope)
         currentSearchResult = newResult
 
