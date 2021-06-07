@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import kotlinx.coroutines.flow.Flow
 import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
-import ua.`in`.khol.oleh.githobbit.domain.usecase.GetRepos
+import ua.`in`.khol.oleh.githobbit.domain.usecase.contract.GetRepos
 
 class MainViewModel(private val getRepos: GetRepos) : ViewModel() {
 
