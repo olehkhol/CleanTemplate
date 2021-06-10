@@ -22,7 +22,9 @@ class GithubPagingSource(
             val apiQuery = query
             val response = service.searchRepos(apiQuery, nextPageNumber, params.loadSize)
             val repos = response.items
-                .map { GitMapper.asRepo(it) }  // TODO move mapper to some proper place
+                .map { repositoryItem ->
+                    GitMapper.asRepo(repositoryItem)
+                }
             val nextKey = if (repos.isEmpty())
                 null
             else

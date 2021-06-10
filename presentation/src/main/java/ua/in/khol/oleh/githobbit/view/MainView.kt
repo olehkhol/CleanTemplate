@@ -79,7 +79,6 @@ class MainView : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
 
-        // TODO I need to THINK ho to make this much more better
         (menu.findItem(R.id.menu_search_view)?.actionView as SearchView).apply {
             queryHint = getString(R.string.query_hint)
             setOnQueryTextListener(object : OnQueryTextListener {
@@ -103,8 +102,8 @@ class MainView : AppCompatActivity() {
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             mainViewModel.searchRepo(query)
-                .collect {
-                    repoAdapter.submitData(it)
+                .collect { pagingData ->
+                    repoAdapter.submitData(pagingData)
                 }
         }
     }
