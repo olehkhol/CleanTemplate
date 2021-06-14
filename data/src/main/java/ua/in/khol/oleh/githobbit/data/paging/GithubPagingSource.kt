@@ -16,13 +16,13 @@ class GithubPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> =
         try {
-            val nextPageNumber = params.key ?: service.startPage
+            val nextPageNumber = params.key ?: GitService.START_PAGE
             val response = service.searchRepos(query, nextPageNumber, params.loadSize)
             val repos = response.items
                 .map { repositoryItem ->
                     GitMapper.asRepo(repositoryItem)
                 }
-            val prevKey = if (nextPageNumber == service.startPage) {
+            val prevKey = if (nextPageNumber == GitService.START_PAGE) {
                 null
             } else {
                 nextPageNumber - 1
@@ -32,7 +32,7 @@ class GithubPagingSource(
             val nextKey = if (repos.isEmpty()) {
                 null
             } else {
-                nextPageNumber + (params.loadSize / service.pageSize)
+                nextPageNumber + (params.loadSize / GitService.PAGE_SIZE)
             }
             Timber.i("Next key is $nextKey")
 

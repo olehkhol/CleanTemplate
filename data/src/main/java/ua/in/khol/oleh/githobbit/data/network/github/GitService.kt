@@ -7,10 +7,6 @@ import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchReposito
 import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
 
 interface GitService {
-    val startPage: Int
-        get() = 1
-    val pageSize: Int
-        get() = 10
 
     @GET("search/repositories")
     suspend fun searchRepos(
@@ -27,4 +23,9 @@ interface GitService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
     ): ArrayList<SubscriberItem>
+
+    companion object {
+        const val START_PAGE: Int = 1
+        const val PAGE_SIZE: Int = 10
+    }
 }

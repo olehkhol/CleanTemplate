@@ -14,7 +14,7 @@ class GitRepositoryImpl(private val service: GitService) : GitRepository {
     override fun getSearchResultStream(query: String): Flow<PagingData<Repo>> =
         Pager(
             config = PagingConfig(
-                pageSize = service.pageSize,
+                pageSize = GitService.PAGE_SIZE,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {

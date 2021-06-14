@@ -7,6 +7,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import ua.`in`.khol.oleh.githobbit.data.network.github.FakeGitService
+import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
 import ua.`in`.khol.oleh.githobbit.data.network.github.RepoFactory
 import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
 import java.lang.Integer.min
@@ -38,7 +39,7 @@ class GithubPagingSourceTest {
         val nextKey = if (data.isEmpty()) {
             null
         } else {
-            nextPageNumber + LOAD_SIZE / service.pageSize
+            nextPageNumber + LOAD_SIZE / GitService.PAGE_SIZE
         }
 
         assertEquals(
@@ -67,7 +68,7 @@ class GithubPagingSourceTest {
         for (i in lastCount downTo 1)
             data.add(factory.create(TOTAL_COUNT - i))
         val nextPageNumber = TOTAL_COUNT / LOAD_SIZE + 1
-        val prevKey = if (nextPageNumber == service.startPage) {
+        val prevKey = if (nextPageNumber == GitService.START_PAGE) {
             null
         } else {
             nextPageNumber - 1
@@ -75,7 +76,7 @@ class GithubPagingSourceTest {
         val nextKey = if (data.isEmpty()) {
             null
         } else {
-            nextPageNumber + (LOAD_SIZE / service.pageSize)
+            nextPageNumber + (LOAD_SIZE / GitService.PAGE_SIZE)
         }
 
         assertEquals(
