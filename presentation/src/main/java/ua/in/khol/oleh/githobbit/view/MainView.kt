@@ -43,7 +43,8 @@ class MainView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        mainView = ViewMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        mainView = ViewMainBinding.inflate(layoutInflater)
+            .also { binding -> setContentView(binding.root) }
         repoAdapter = RepoAdapter()
 
         mainView.recyclerView.addItemDecoration(

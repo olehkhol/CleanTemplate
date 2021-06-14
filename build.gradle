@@ -39,7 +39,7 @@ ext {
             ]
     ]
     kotlinx = [
-            coroutines: '1.5.0'
+            coroutines: '1.5.0',
     ]
     google = [
             dagger  : '2.36',
@@ -51,6 +51,7 @@ ext {
             picasso : '2.71828',
             retrofit: '2.9.0'
     ]
+    timber = '4.7.1'
     junit = '4.13.2'
 }
 

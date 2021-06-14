@@ -41,7 +41,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinx.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx.coroutines}"
 
+    implementation "com.jakewharton.timber:timber:$timber"
+
     testImplementation "junit:junit:$junit"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${kotlinx.coroutines}"
 
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidx.test.espresso}"
     androidTestImplementation "androidx.test.ext:junit:${androidx.test.ext}"

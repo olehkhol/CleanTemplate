@@ -3,13 +3,11 @@ package ua.`in`.khol.oleh.githobbit.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import retrofit2.HttpException
+import timber.log.Timber
 import ua.`in`.khol.oleh.githobbit.data.mapper.GitMapper
 import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
-import ua.`in`.khol.oleh.githobbit.data.repository.implementation.GitRepositoryImpl.Companion.NETWORK_PAGE_SIZE
 import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
 import java.io.IOException
-
-private const val START_PAGE_INDEX = 1
 
 class GithubPagingSource(
     private val service: GitService,
@@ -18,21 +16,29 @@ class GithubPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> =
         try {
-            val nextPageNumber = params.key ?: START_PAGE_INDEX
-            val apiQuery = query
-            val response = service.searchRepos(apiQuery, nextPageNumber, params.loadSize)
+            val nextPageNumber = params.key ?: service.startPage
+            val response = service.searchRepos(query, nextPageNumber, params.loadSize)
             val repos = response.items
                 .map { repositoryItem ->
                     GitMapper.asRepo(repositoryItem)
                 }
-            val nextKey = if (repos.isEmpty())
+            val prevKey = if (nextPageNumber == service.startPage) {
                 null
-            else
-                nextPageNumber + (params.loadSize / NETWORK_PAGE_SIZE)
+            } else {
+                nextPageNumber - 1
+            }
+            Timber.i("Previous key is $prevKey")
+
+            val nextKey = if (repos.isEmpty()) {
+                null
+            } else {
+                nextPageNumber + (params.loadSize / service.pageSize)
+            }
+            Timber.i("Next key is $nextKey")
 
             LoadResult.Page(
                 data = repos,
-                prevKey = if (nextPageNumber == START_PAGE_INDEX) null else nextPageNumber - 1,
+                prevKey = prevKey,
                 nextKey = nextKey
             )
         } catch (e: IOException) {
@@ -47,5 +53,7 @@ class GithubPagingSource(
         state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
+        }.also {
+            Timber.i("Refresh key is $it")
         }
 }

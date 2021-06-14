@@ -14,17 +14,11 @@ class GitRepositoryImpl(private val service: GitService) : GitRepository {
     override fun getSearchResultStream(query: String): Flow<PagingData<Repo>> =
         Pager(
             config = PagingConfig(
-                pageSize = NETWORK_PAGE_SIZE,
+                pageSize = service.pageSize,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
                 GithubPagingSource(service, query)
             }
         ).flow
-
-    companion object {
-        // TODO Move this constant out into some 'public file'
-        //  currently this constant in 'companion' coz it is used in 'GithubPagingSource.kt'
-        const val NETWORK_PAGE_SIZE = 30
-    }
 }

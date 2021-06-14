@@ -7,6 +7,10 @@ import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchReposito
 import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
 
 interface GitService {
+    val startPage: Int
+        get() = 1
+    val pageSize: Int
+        get() = 10
 
     @GET("search/repositories")
     suspend fun searchRepos(

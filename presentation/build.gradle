@@ -60,6 +60,8 @@ dependencies {
     implementation "com.squareup.picasso:picasso:${squareup.picasso}"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${squareup.canary}"
 
+    implementation "com.jakewharton.timber:timber:$timber"
+
     testImplementation "junit:junit:$junit"
     testImplementation "androidx.room:room-testing:${androidx.room}"
 
