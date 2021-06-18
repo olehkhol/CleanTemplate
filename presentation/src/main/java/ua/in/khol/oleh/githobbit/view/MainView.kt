@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.MainApplication
@@ -19,6 +19,7 @@ import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewMainBinding
 import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
 import ua.`in`.khol.oleh.githobbit.view.adapters.RepoAdapter
+import ua.`in`.khol.oleh.githobbit.view.adapters.RepoLoadStateAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.MainViewModel
 import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelFactory
 import javax.inject.Inject
@@ -33,7 +34,7 @@ class MainView : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainViewModel
     private lateinit var mainView: ViewMainBinding
-    private lateinit var repoAdapter: RepoAdapter
+    private var repoAdapter: RepoAdapter = RepoAdapter()
 
     private lateinit var searchQuery: String
     private var searchJob: Job? = null
@@ -44,16 +45,18 @@ class MainView : AppCompatActivity() {
 
         mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         mainView = ViewMainBinding.inflate(layoutInflater)
-            .also { binding -> setContentView(binding.root) }
-        repoAdapter = RepoAdapter()
-
+            .also { binding ->
+                setContentView(binding.root)
+            }
         mainView.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
         )
-        mainView.recyclerView.adapter = repoAdapter
+        mainView.recyclerView.adapter =
+            repoAdapter.withLoadStateHeaderAndFooter(RepoLoadStateAdapter { repoAdapter.retry() },
+                RepoLoadStateAdapter { repoAdapter.retry() })
         mainView.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -103,7 +106,7 @@ class MainView : AppCompatActivity() {
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             mainViewModel.searchRepo(query)
-                .collect { pagingData ->
+                .collectLatest { pagingData ->
                     repoAdapter.submitData(pagingData)
                 }
         }

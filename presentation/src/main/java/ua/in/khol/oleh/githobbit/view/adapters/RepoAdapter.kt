@@ -1,16 +1,13 @@
 package ua.`in`.khol.oleh.githobbit.view.adapters
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
 import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
 import ua.`in`.khol.oleh.githobbit.viewmodel.events.SingleLiveEvent
 
 class RepoAdapter :
-    PagingDataAdapter<Repo, RepoAdapter.RepoViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<Repo, RepoViewHolder>(DIFF_CALLBACK) {
 
     val clickedItem: SingleLiveEvent<Repo> = SingleLiveEvent()
 
@@ -32,24 +29,6 @@ class RepoAdapter :
 
             override fun areContentsTheSame(oldItem: Repo, newItem: Repo) =
                 oldItem == newItem
-        }
-    }
-
-    class RepoViewHolder(private val binding: RepoItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(repo: Repo) {
-            binding.repo = repo
-            binding.executePendingBindings()
-        }
-
-        companion object {
-            fun from(parent: ViewGroup): RepoViewHolder {
-                val inflater = LayoutInflater.from(parent.context)
-                val binding = RepoItemBinding.inflate(inflater, parent, false)
-
-                return RepoViewHolder(binding)
-            }
         }
     }
 }
