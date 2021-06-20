@@ -3,4 +3,5 @@
     <string name="query_hint">Repository name</string>
     <string name="search">Search</string>
     <string name="retry">Retry</string>
+    <string name="no_result">No result</string>
 </resources>

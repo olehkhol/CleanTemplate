@@ -26,8 +26,8 @@ class RepoLoadStateViewHolder(
 
     companion object {
         fun from(parent: ViewGroup, retry: () -> Unit): RepoLoadStateViewHolder {
-            val binding =
-                LoadStateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            val binding = LoadStateBinding
+                .inflate(LayoutInflater.from(parent.context), parent, false)
             return RepoLoadStateViewHolder(binding, retry)
         }
     }

@@ -4,11 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="presentation/src/main/res/layout/bottom_load_state.xml" value="0.125" />
-        <entry key="presentation/src/main/res/layout/load_state.xml" value="0.17654508611955422" />
+        <entry key="presentation/src/main/res/layout/load_state.xml" value="0.1" />
         <entry key="presentation/src/main/res/layout/repo_item.xml" value="0.125" />
         <entry key="presentation/src/main/res/layout/sub_item.xml" value="0.125" />
         <entry key="presentation/src/main/res/layout/view_detail.xml" value="0.125" />
-        <entry key="presentation/src/main/res/layout/view_main.xml" value="0.125" />
+        <entry key="presentation/src/main/res/layout/view_main.xml" value="0.25" />
       </map>
     </option>
   </component>
