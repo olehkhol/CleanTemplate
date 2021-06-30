@@ -1,5 +1,7 @@
 package ua.`in`.khol.oleh.githobbit.di
 
+import android.app.Application
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ua.`in`.khol.oleh.githobbit.data.mapper.GitMapper
@@ -10,7 +12,13 @@ import javax.inject.Singleton
 
 
 @Module
-class ApplicationModule {
+class ApplicationModule(
+    private val application: Application
+) {
+
+    @Singleton
+    @Provides
+    fun provideApplicationContext(): Context = application.applicationContext
 
     @Singleton
     @Provides

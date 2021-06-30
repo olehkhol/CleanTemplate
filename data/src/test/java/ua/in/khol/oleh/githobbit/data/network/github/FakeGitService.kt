@@ -1,21 +1,21 @@
 package ua.`in`.khol.oleh.githobbit.data.network.github
 
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepositoryItem
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepositoryOwner
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchRepositoryResponse
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.OwnerItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepoItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchRepoResponse
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubItem
 
 class FakeGitService(count: Int) : GitService {
 
-    private val items = arrayListOf<RepositoryItem>()
+    private val items = arrayListOf<RepoItem>()
 
     init {
         for (i in 0 until count)
             items.add(
-                RepositoryItem(
-                    i,
+                RepoItem(
+                    i.toLong(),
                     "Name $i",
-                    RepositoryOwner("Owner $i", ""),
+                    OwnerItem("Owner $i", ""),
                     0,
                     "Description $i",
                     0
@@ -27,8 +27,8 @@ class FakeGitService(count: Int) : GitService {
         q: String,
         page: Int,
         perPage: Int
-    ): SearchRepositoryResponse {
-        val subItems = arrayListOf<RepositoryItem>()
+    ): SearchRepoResponse {
+        val subItems = arrayListOf<RepoItem>()
         val fromIndex = (page - 1) * perPage
         var toIndex = page * perPage
         if (toIndex > items.size)
@@ -36,7 +36,7 @@ class FakeGitService(count: Int) : GitService {
         if (fromIndex <= toIndex)
             subItems.addAll(items.subList(fromIndex, toIndex))
 
-        return SearchRepositoryResponse(false, subItems, subItems.size)
+        return SearchRepoResponse(false, subItems, subItems.size)
     }
 
     override suspend fun getSubs(
@@ -44,7 +44,7 @@ class FakeGitService(count: Int) : GitService {
         repo: String,
         page: Int,
         perPage: Int
-    ): ArrayList<SubscriberItem> {
+    ): ArrayList<SubItem> {
         TODO("Not yet implemented")
     }
 }

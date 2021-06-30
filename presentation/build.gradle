@@ -46,9 +46,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${androidx.lifecycle}"
     implementation "androidx.paging:paging-runtime-ktx:${androidx.paging}"
-    implementation "androidx.room:room-runtime:${androidx.room}"
-    implementation "androidx.room:room-ktx:${androidx.room}"
-    kapt "androidx.room:room-compiler:${androidx.room}"
 
     implementation "com.google.dagger:dagger:${google.dagger}"
     kapt "com.google.dagger:dagger-compiler:${google.dagger}"
@@ -56,6 +53,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinx.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx.coroutines}"
+
+    implementation "androidx.room:room-ktx:${androidx.room}"
 
     implementation "com.squareup.picasso:picasso:${squareup.picasso}"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${squareup.canary}"

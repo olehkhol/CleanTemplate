@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ua.`in`.khol.oleh.githobbit.databinding.SubItemBinding
-import ua.`in`.khol.oleh.githobbit.domain.entity.Sub
+import ua.`in`.khol.oleh.githobbit.domain.model.Sub
 
 class SubAdapter :
     PagingDataAdapter<Sub, SubAdapter.SubViewHolder>(DIFF_CALLBACK) {

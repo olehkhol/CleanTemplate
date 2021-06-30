@@ -1,12 +1,11 @@
 package ua.`in`.khol.oleh.githobbit.data.network.github.serialized
 
 import com.google.gson.annotations.SerializedName
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepositoryItem
 
-data class SearchRepositoryResponse(
+data class SearchRepoResponse(
     val incomplete_results: Boolean,
     @SerializedName("items")
-    val items: List<RepositoryItem>,
+    val repoItems: List<RepoItem>,
     @SerializedName("total_count")
     val total_count: Int
 )

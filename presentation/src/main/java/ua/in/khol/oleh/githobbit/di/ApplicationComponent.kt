@@ -1,6 +1,7 @@
 package ua.`in`.khol.oleh.githobbit.di
 
 import dagger.Component
+import ua.`in`.khol.oleh.githobbit.data.di.DatabaseModule
 import ua.`in`.khol.oleh.githobbit.data.di.NetworkModule
 import ua.`in`.khol.oleh.githobbit.data.di.RepositoryModule
 import ua.`in`.khol.oleh.githobbit.domain.di.UseCaseModule
@@ -14,7 +15,9 @@ import javax.inject.Singleton
         ApplicationModule::class,
         UseCaseModule::class,
         RepositoryModule::class,
-        NetworkModule::class]
+        NetworkModule::class,
+        DatabaseModule::class
+    ]
 )
 interface ApplicationComponent {
 

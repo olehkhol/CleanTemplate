@@ -1,22 +1,43 @@
 package ua.`in`.khol.oleh.githobbit.data.mapper
 
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepositoryItem
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
-import ua.`in`.khol.oleh.githobbit.domain.entity.Sub
+import ua.`in`.khol.oleh.githobbit.data.database.entity.RepoEntity
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepoItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubItem
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Sub
 
 object GitMapper {
-    fun asRepo(item: RepositoryItem) = Repo(
-        id = item.id,
-        ownerName = item.owner.login,
-        ownerImage = item.owner.avatar_url,
-        repoName = item.name,
-        repoDescription = item.description,
-        starsCount = item.stargazers_count,
-        forksCount = item.forks_count
+    fun asRepo(repoItem: RepoItem) = Repo(
+        id = repoItem.id,
+        ownerName = repoItem.ownerItem.login,
+        ownerImage = repoItem.ownerItem.avatar_url,
+        repoName = repoItem.name,
+        repoDescription = repoItem.description,
+        starsCount = repoItem.stargazers_count,
+        forksCount = repoItem.forks_count
     )
 
-    fun asSub(item: SubscriberItem) = Sub(
+    fun asRepo(repoEntity: RepoEntity) = Repo(
+        id = repoEntity.id,
+        ownerName = repoEntity.ownerName,
+        ownerImage = repoEntity.ownerImage,
+        repoName = repoEntity.name,
+        repoDescription = repoEntity.description,
+        starsCount = repoEntity.stars,
+        forksCount = repoEntity.forks
+    )
+
+    fun asRepoEntity(repoItem: RepoItem) = RepoEntity(
+        id = repoItem.id,
+        name = repoItem.name,
+        ownerName = repoItem.ownerItem.login,
+        ownerImage = repoItem.ownerItem.avatar_url,
+        description = repoItem.description,
+        stars = repoItem.stargazers_count,
+        forks = repoItem.forks_count
+    )
+
+    fun asSub(item: SubItem) = Sub(
         id = item.id,
         name = item.login,
         image = item.avatar_url

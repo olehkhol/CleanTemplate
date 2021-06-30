@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.Job
@@ -22,7 +23,7 @@ import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewMainBinding
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.view.adapters.RepoAdapter
 import ua.`in`.khol.oleh.githobbit.view.adapters.RepoLoadStateAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.MainViewModel
@@ -54,12 +55,12 @@ class MainView : AppCompatActivity() {
         // Listening to LoadState to change the UI at the beginning of the load
         repoAdapter.addLoadStateListener { loadState: CombinedLoadStates ->
             // TODO adapt in the future for the RemoteMediator too
-            val refreshState = loadState.source.refresh
-            val appendState = loadState.source.append
-            val prependState = loadState.source.prepend
+            val refreshState = loadState.mediator?.refresh
+            val appendState = loadState.mediator?.append
+            val prependState = loadState.mediator?.prepend
 
             // Only show the list if refresh succeeds
-            mainView.recyclerView.isVisible = refreshState is LoadState.NotLoading
+            mainView.recyclerView.isVisible = true//refreshState is LoadState.NotLoading
             // Show loading spinner during initial load or refresh
             mainView.progressBar.isVisible = refreshState is LoadState.Loading
             // Show the retry state if initial load or refresh fails
@@ -147,8 +148,9 @@ class MainView : AppCompatActivity() {
         // Make sure we cancel the previous job before creating a new one
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
-            mainViewModel.searchRepo(query)
-                .collectLatest { pagingData ->
+            mainViewModel
+                .searchRepo(query)
+                .collectLatest { pagingData: PagingData<Repo> ->
                     repoAdapter.submitData(pagingData)
                 }
         }

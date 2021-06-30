@@ -2,13 +2,13 @@ package ua.`in`.khol.oleh.githobbit.data.network.github.serialized
 
 import com.google.gson.annotations.SerializedName
 
-data class RepositoryItem(
+data class RepoItem(
     @SerializedName("id")
-    val id: Int,
+    val id: Long,
     @SerializedName("name")
     val name: String,
     @SerializedName("owner")
-    val owner: RepositoryOwner,
+    val ownerItem: OwnerItem,
     @SerializedName("stargazers_count")
     val stargazers_count: Int,
     @SerializedName("description")

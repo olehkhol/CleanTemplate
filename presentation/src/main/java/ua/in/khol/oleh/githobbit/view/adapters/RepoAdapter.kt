@@ -3,7 +3,7 @@ package ua.`in`.khol.oleh.githobbit.view.adapters
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.viewmodel.events.SingleLiveEvent
 
 class RepoAdapter :

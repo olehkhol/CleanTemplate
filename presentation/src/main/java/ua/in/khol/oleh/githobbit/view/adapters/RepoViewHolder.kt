@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ua.`in`.khol.oleh.githobbit.databinding.RepoItemBinding
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 
 
 class RepoViewHolder(private val binding: RepoItemBinding) :

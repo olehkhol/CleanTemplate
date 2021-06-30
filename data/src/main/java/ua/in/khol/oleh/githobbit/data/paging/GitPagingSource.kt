@@ -6,10 +6,10 @@ import retrofit2.HttpException
 import timber.log.Timber
 import ua.`in`.khol.oleh.githobbit.data.mapper.GitMapper
 import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import java.io.IOException
 
-class GithubPagingSource(
+class GitPagingSource(
     private val service: GitService,
     private val query: String
 ) : PagingSource<Int, Repo>() {
@@ -18,7 +18,7 @@ class GithubPagingSource(
         try {
             val nextPageNumber = params.key ?: GitService.START_PAGE
             val response = service.searchRepos(query, nextPageNumber, params.loadSize)
-            val repos = response.items
+            val repos = response.repoItems
                 .map { repositoryItem ->
                     GitMapper.asRepo(repositoryItem)
                 }

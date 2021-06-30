@@ -1,9 +1,9 @@
-package ua.`in`.khol.oleh.githobbit.domain.entity
+package ua.`in`.khol.oleh.githobbit.domain.model
 
 import java.io.Serializable
 
 data class Repo(
-    val id: Int = 0,
+    val id: Long = 0,
     val ownerName: String = "",
     val ownerImage: String = "",
     val repoName: String = "",

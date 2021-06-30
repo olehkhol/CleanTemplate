@@ -9,7 +9,7 @@ import org.junit.Test
 import ua.`in`.khol.oleh.githobbit.data.network.github.FakeGitService
 import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
 import ua.`in`.khol.oleh.githobbit.data.network.github.RepoFactory
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import java.lang.Integer.min
 import kotlin.test.assertEquals
 
@@ -17,12 +17,12 @@ private const val TOTAL_COUNT = 113
 private const val LOAD_SIZE = 7
 
 @ExperimentalCoroutinesApi
-class GithubPagingSourceTest {
+class GitPagingSourceTest {
 
     private val service = FakeGitService(TOTAL_COUNT)
 
     // Fetch data with empty 'query', no need to make it so real
-    private val pagingSource = GithubPagingSource(service, "")
+    private val pagingSource = GitPagingSource(service, "")
     private val factory = RepoFactory()
 
     /**

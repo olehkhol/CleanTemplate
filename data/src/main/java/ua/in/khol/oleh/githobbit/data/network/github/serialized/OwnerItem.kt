@@ -2,7 +2,7 @@ package ua.`in`.khol.oleh.githobbit.data.network.github.serialized
 
 import com.google.gson.annotations.SerializedName
 
-data class RepositoryOwner(
+data class OwnerItem(
     @SerializedName("login")
     val login: String,
     @SerializedName("avatar_url")

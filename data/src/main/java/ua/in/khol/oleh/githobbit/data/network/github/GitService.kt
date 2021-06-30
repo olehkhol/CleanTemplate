@@ -3,8 +3,8 @@ package ua.`in`.khol.oleh.githobbit.data.network.github
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchRepositoryResponse
-import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubscriberItem
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SearchRepoResponse
+import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubItem
 
 interface GitService {
 
@@ -13,7 +13,7 @@ interface GitService {
         @Query("q") q: String,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): SearchRepositoryResponse
+    ): SearchRepoResponse
 
     // "https://api.github.com/repos/open-android/Android/subscribers"
     @GET("repos/{owner}/{repo}/subscribers")
@@ -22,7 +22,7 @@ interface GitService {
         @Path("repo") repo: String,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): ArrayList<SubscriberItem>
+    ): ArrayList<SubItem>
 
     companion object {
         const val START_PAGE: Int = 1

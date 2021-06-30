@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.githobbit.domain.entity
+package ua.`in`.khol.oleh.githobbit.domain.model
 
 data class Sub(
     val id: Int = 0,

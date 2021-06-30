@@ -1,10 +1,10 @@
-package ua.`in`.khol.oleh.githobbit.domain.entity
+package ua.`in`.khol.oleh.githobbit.domain.model
 
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-private const val ID = 1
+private const val ID: Long = 1
 private const val OWNER_NAME = "olehkhol"
 private const val OWNER_IMAGE = "owner_image.png"
 private const val REPO_NAME = "GitHobbit"

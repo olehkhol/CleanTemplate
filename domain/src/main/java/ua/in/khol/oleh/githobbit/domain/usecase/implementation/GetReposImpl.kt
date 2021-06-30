@@ -2,7 +2,7 @@ package ua.`in`.khol.oleh.githobbit.domain.usecase.implementation
 
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.domain.repository.contract.GitRepository
 import ua.`in`.khol.oleh.githobbit.domain.usecase.contract.GetRepos
 

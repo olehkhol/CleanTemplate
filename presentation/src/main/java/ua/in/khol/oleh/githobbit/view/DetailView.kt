@@ -9,7 +9,7 @@ import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewDetailBinding
-import ua.`in`.khol.oleh.githobbit.domain.entity.Repo
+import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.view.adapters.SubAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.DetailViewModel
 import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelFactory
