@@ -8,7 +8,7 @@ import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.SubItem
 
 interface GitService {
 
-    @GET("search/repositories")
+    @GET("search/repositories?sort=stars")
     suspend fun searchRepos(
         @Query("q") q: String,
         @Query("page") page: Int,

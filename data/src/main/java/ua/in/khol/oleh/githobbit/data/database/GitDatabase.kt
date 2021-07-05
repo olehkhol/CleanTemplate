@@ -28,9 +28,7 @@ abstract class GitDatabase : RoomDatabase() {
         fun getInstance(context: Context): GitDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context)
-                    .also {
-                        INSTANCE = it
-                    }
+                    .also { INSTANCE = it }
             }
 
         private fun buildDatabase(context: Context): GitDatabase =

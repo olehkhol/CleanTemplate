@@ -14,7 +14,6 @@ import ua.`in`.khol.oleh.githobbit.data.database.entity.RepoEntity
 import ua.`in`.khol.oleh.githobbit.data.mapper.GitMapper
 import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
 import ua.`in`.khol.oleh.githobbit.data.network.github.serialized.RepoItem
-import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import java.io.IOException
 
 @ExperimentalPagingApi
@@ -22,9 +21,16 @@ class GitRemoteMediator(
     private val query: String,
     private val database: GitDatabase,
     private val service: GitService
-) : RemoteMediator<Int, Repo>() {
+) : RemoteMediator<Int, RepoEntity>() {
 
-    override suspend fun load(loadType: LoadType, state: PagingState<Int, Repo>): MediatorResult {
+    override suspend fun initialize(): InitializeAction {
+        return InitializeAction.LAUNCH_INITIAL_REFRESH
+    }
+
+    override suspend fun load(
+        loadType: LoadType,
+        state: PagingState<Int, RepoEntity>
+    ): MediatorResult {
 
         val page: Int = when (loadType) {
             REFRESH -> {
@@ -82,40 +88,40 @@ class GitRemoteMediator(
         }
     }
 
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, Repo>): RemoteKeysEntity? {
+    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, RepoEntity>): RemoteKeysEntity? {
         // Get the last page that was retrieved, that contained items.
-        val pages: List<Page<Int, Repo>> = state.pages
-        val page = pages.lastOrNull(predicate = { page: Page<Int, Repo> ->
-            val data: List<Repo> = page.data
+        val pages: List<Page<Int, RepoEntity>> = state.pages
+        val page = pages.lastOrNull(predicate = { page: Page<Int, RepoEntity> ->
+            val data: List<RepoEntity> = page.data
             data.isNotEmpty()
         })
         // From that last page, get the last item
-        val repo: Repo? = page?.data?.lastOrNull()
+        val repoEntity: RepoEntity? = page?.data?.lastOrNull()
         // Get the remoteKeys of the last item retrieved
-        return repo?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
+        return repoEntity?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
     }
 
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, Repo>): RemoteKeysEntity? {
+    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, RepoEntity>): RemoteKeysEntity? {
         // Get the first page that was retrieved, that contained items.
-        val pages: List<Page<Int, Repo>> = state.pages
-        val page = pages.firstOrNull(predicate = { page: Page<Int, Repo> ->
-            val data: List<Repo> = page.data
+        val pages: List<Page<Int, RepoEntity>> = state.pages
+        val page = pages.firstOrNull(predicate = { page: Page<Int, RepoEntity> ->
+            val data: List<RepoEntity> = page.data
             data.isNotEmpty()
         })
         // From that first page, get the first item
-        val repo: Repo? = page?.data?.firstOrNull()
+        val repoEntity: RepoEntity? = page?.data?.firstOrNull()
         // Get the remote keys of the first items retrieved
-        return repo?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
+        return repoEntity?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
     }
 
     private suspend fun getRemoteKeyClosestToCurrentPosition(
-        state: PagingState<Int, Repo>
+        state: PagingState<Int, RepoEntity>
     ): RemoteKeysEntity? {
         // The paging library is trying to load data after the anchor position
         val position: Int? = state.anchorPosition
         // Get the item closest to the anchor position
-        val repo: Repo? = position?.let { state.closestItemToPosition(it) }
+        val repoEntity: RepoEntity? = position?.let { state.closestItemToPosition(it) }
         // Get the remote keys of the item retrieved
-        return repo?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
+        return repoEntity?.let { database.remoteKeysDao().remoteKeysRepoId(it.id) }
     }
 }

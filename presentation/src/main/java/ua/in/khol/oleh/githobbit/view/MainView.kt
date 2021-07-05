@@ -54,13 +54,13 @@ class MainView : AppCompatActivity() {
 
         // Listening to LoadState to change the UI at the beginning of the load
         repoAdapter.addLoadStateListener { loadState: CombinedLoadStates ->
-            // TODO adapt in the future for the RemoteMediator too
+
             val refreshState = loadState.mediator?.refresh
             val appendState = loadState.mediator?.append
             val prependState = loadState.mediator?.prepend
 
             // Only show the list if refresh succeeds
-            mainView.recyclerView.isVisible = true//refreshState is LoadState.NotLoading
+            mainView.recyclerView.isVisible = refreshState is LoadState.NotLoading
             // Show loading spinner during initial load or refresh
             mainView.progressBar.isVisible = refreshState is LoadState.Loading
             // Show the retry state if initial load or refresh fails
