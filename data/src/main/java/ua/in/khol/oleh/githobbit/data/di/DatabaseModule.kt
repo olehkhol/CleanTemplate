@@ -9,5 +9,5 @@ import ua.`in`.khol.oleh.githobbit.data.database.GitDatabase
 class DatabaseModule {
 
     @Provides
-    fun provideDatabase(context: Context) = GitDatabase.getInstance(context)
+    fun provideDatabase(context: Context) = GitDatabase.getInstance(context, false)
 }

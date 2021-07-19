@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.Job
@@ -47,29 +46,47 @@ class MainView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        mainView = ViewMainBinding.inflate(layoutInflater)
-            .also { binding ->
-                setContentView(binding.root)
-            }
+        mainView =
+            ViewMainBinding.inflate(layoutInflater).also { binding -> setContentView(binding.root) }
+
+        // Setup the repo's recycler view
+        mainView.recyclerView.apply {
+            adapter = repoAdapter
+                // Displaying the loading state in a footer
+                .withLoadStateHeaderAndFooter(RepoLoadStateAdapter { repoAdapter.retry() },
+                    RepoLoadStateAdapter { repoAdapter.retry() })
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        }
+
+        // The retry button should trigger a reload of the PagingData
+        mainView.retryButton.setOnClickListener { repoAdapter.retry() }
+
+        search(savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY)
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         // Listening to LoadState to change the UI at the beginning of the load
         repoAdapter.addLoadStateListener { loadState: CombinedLoadStates ->
 
-            val refreshState = loadState.mediator?.refresh
-            val appendState = loadState.mediator?.append
-            val prependState = loadState.mediator?.prepend
+            val mediatorRefreshState = loadState.mediator?.refresh
+            val mediatorAppendState = loadState.mediator?.append
+            val mediatorPrependState = loadState.mediator?.prepend
 
             // Only show the list if refresh succeeds
-            mainView.recyclerView.isVisible = refreshState is LoadState.NotLoading
+            mainView.recyclerView.isVisible = true // mediatorRefreshState is LoadState.NotLoading
             // Show loading spinner during initial load or refresh
-            mainView.progressBar.isVisible = refreshState is LoadState.Loading
+            mainView.progressBar.isVisible = false // mediatorRefreshState is LoadState.Loading
             // Show the retry state if initial load or refresh fails
-            mainView.retryButton.isVisible = refreshState is LoadState.Error
+            mainView.retryButton.isVisible = false // mediatorRefreshState is LoadState.Error
 
-            val isListEmpty = refreshState is LoadState.NotLoading && repoAdapter.itemCount == 0
-            val errorState = refreshState as? LoadState.Error
-                ?: appendState as? LoadState.Error
-                ?: prependState as? LoadState.Error
+            val isListEmpty =
+                mediatorRefreshState is LoadState.NotLoading && repoAdapter.itemCount == 0
+            val errorState = mediatorRefreshState as? LoadState.Error
+                ?: mediatorAppendState as? LoadState.Error
+                ?: mediatorPrependState as? LoadState.Error
             // Toast any error or show 'No result'
             errorState?.let {
                 Toast.makeText(
@@ -79,21 +96,6 @@ class MainView : AppCompatActivity() {
                 ).show()
             } ?: showNoResult(isListEmpty)
         }
-
-        // Setup the repo's recycler view
-        mainView.recyclerView.adapter = repoAdapter
-            // Displaying the loading state in a footer
-            .withLoadStateHeaderAndFooter(RepoLoadStateAdapter { repoAdapter.retry() },
-                RepoLoadStateAdapter { repoAdapter.retry() })
-        mainView.recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        mainView.recyclerView.addItemDecoration(
-            DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        )
-        // The retry button should trigger a reload of the PagingData
-        mainView.retryButton.setOnClickListener { repoAdapter.retry() }
-
-        search(savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY)
     }
 
     private fun showNoResult(isListEmpty: Boolean) {
@@ -150,7 +152,7 @@ class MainView : AppCompatActivity() {
         searchJob = lifecycleScope.launch {
             mainViewModel
                 .searchRepo(query)
-                .collectLatest { pagingData: PagingData<Repo> ->
+                .collectLatest { pagingData ->
                     repoAdapter.submitData(pagingData)
                 }
         }
