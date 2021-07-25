@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://api.github.com/"
 
+// Wrapper class to avoid unnecessary Retrofit2 dependency in 'presenter' module
 class GitRetrofit(private val client: OkHttpClient) {
 
     val service: GitService = build()

@@ -5,9 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation "com.google.dagger:dagger:${google.dagger}"
-    kapt "com.google.dagger:dagger-compiler:${google.dagger}"
-
+    implementation "javax.inject:javax.inject:1"
     // alternatively - without Android dependencies for tests
     // and for 'clean' reason it can be useful for 'domain' layer
     implementation "androidx.paging:paging-common:${androidx.paging}"

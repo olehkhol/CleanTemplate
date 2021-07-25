@@ -1,6 +1,9 @@
 package ua.`in`.khol.oleh.githobbit.viewmodel
 
 import androidx.lifecycle.ViewModel
-import ua.`in`.khol.oleh.githobbit.domain.usecase.contract.GetSubs
+import dagger.hilt.android.lifecycle.HiltViewModel
+import ua.`in`.khol.oleh.githobbit.domain.usecase.GetSubsImpl
+import javax.inject.Inject
 
-class DetailViewModel(private val getSubs: GetSubs) : ViewModel()
+@HiltViewModel
+class DetailViewModel @Inject constructor(private val getSubs: GetSubsImpl) : ViewModel()

@@ -4,11 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import ua.`in`.khol.oleh.githobbit.domain.model.Repo
-import ua.`in`.khol.oleh.githobbit.domain.usecase.contract.GetRepos
+import ua.`in`.khol.oleh.githobbit.domain.usecase.GetReposImpl
+import javax.inject.Inject
 
-class MainViewModel(private val getRepos: GetRepos) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val getRepos: GetReposImpl) : ViewModel() {
 
     private var currentQueryValue: String? = null
     private var currentSearchResult: Flow<PagingData<Repo>>? = null

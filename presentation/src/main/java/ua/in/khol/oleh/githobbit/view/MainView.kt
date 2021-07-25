@@ -5,47 +5,44 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import ua.`in`.khol.oleh.githobbit.ExtraConstants.Companion.REPO
-import ua.`in`.khol.oleh.githobbit.MainApplication
 import ua.`in`.khol.oleh.githobbit.R
 import ua.`in`.khol.oleh.githobbit.databinding.ViewMainBinding
 import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.view.adapters.RepoAdapter
 import ua.`in`.khol.oleh.githobbit.view.adapters.RepoLoadStateAdapter
 import ua.`in`.khol.oleh.githobbit.viewmodel.MainViewModel
-import ua.`in`.khol.oleh.githobbit.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainView : AppCompatActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit var mainView: ViewMainBinding
-    private var repoAdapter: RepoAdapter = RepoAdapter()
+
+    @Inject
+    lateinit var repoAdapter: RepoAdapter
 
     private lateinit var searchQuery: String
     private var searchJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as MainApplication).daggerComponent.inject(this)
         super.onCreate(savedInstanceState)
 
-        mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         mainView =
             ViewMainBinding.inflate(layoutInflater).also { binding -> setContentView(binding.root) }
 
@@ -76,11 +73,11 @@ class MainView : AppCompatActivity() {
             val mediatorPrependState = loadState.mediator?.prepend
 
             // Only show the list if refresh succeeds
-            mainView.recyclerView.isVisible = true // mediatorRefreshState is LoadState.NotLoading
+            mainView.recyclerView.isVisible = mediatorRefreshState is LoadState.NotLoading
             // Show loading spinner during initial load or refresh
-            mainView.progressBar.isVisible = false // mediatorRefreshState is LoadState.Loading
+            mainView.progressBar.isVisible = mediatorRefreshState is LoadState.Loading
             // Show the retry state if initial load or refresh fails
-            mainView.retryButton.isVisible = false // mediatorRefreshState is LoadState.Error
+            mainView.retryButton.isVisible = mediatorRefreshState is LoadState.Error
 
             val isListEmpty =
                 mediatorRefreshState is LoadState.NotLoading && repoAdapter.itemCount == 0

@@ -5,8 +5,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import ua.`in`.khol.oleh.githobbit.domain.model.Repo
 import ua.`in`.khol.oleh.githobbit.viewmodel.events.SingleLiveEvent
+import javax.inject.Inject
 
-class RepoAdapter :
+class RepoAdapter @Inject constructor() :
     PagingDataAdapter<Repo, RepoViewHolder>(DIFF_CALLBACK) {
 
     val clickedItem: SingleLiveEvent<Repo> = SingleLiveEvent()

@@ -2,14 +2,17 @@ package ua.`in`.khol.oleh.githobbit.data.di
 
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import ua.`in`.khol.oleh.githobbit.data.database.GitDatabase
 import ua.`in`.khol.oleh.githobbit.data.network.github.GitService
 import ua.`in`.khol.oleh.githobbit.data.repository.implementation.GitRepositoryImpl
 import ua.`in`.khol.oleh.githobbit.domain.repository.contract.GitRepository
 import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
-class RepositoryModule {
+object RepositoryModule {
 
     @Singleton
     @Provides
