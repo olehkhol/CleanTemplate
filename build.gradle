@@ -1,8 +1,8 @@
 buildscript {
     ext {
-        kotlin_version = '1.5.21'
-        gradle_tool = '4.2.2'
-        hilt_version = '2.38'
+        kotlin_version = '1.7.10'
+        gradle_tool = '7.2.1'
+        hilt_version = '2.42'
     }
 
     repositories {
@@ -21,19 +21,19 @@ buildscript {
 }
 
 ext {
-    compileSdkVersion = 30
-    buildToolsVersion = '30.0.3'
+    compileSdkVersion = 32
+    buildToolsVersion = '32.0.0'
     minSdkVersion = 21
-    targetSdkVersion = 30
+    targetSdkVersion = 31
 
     androidx = [
-            activity  : '1.2.4',
-            appcompat : '1.3.0',
-            constraint: '2.0.4',
-            core      : '1.6.0',
-            fragment  : '1.3.6',
-            lifecycle : '2.3.1',
-            paging    : '3.0.1',
+            activity  : '1.4.0',
+            appcompat : '1.4.0',
+            constraint: '2.1.2',
+            core      : '1.7.0',
+            fragment  : '1.4.0',
+            lifecycle : '2.4.0',
+            paging    : '3.1.0',
             room      : '2.3.0',
             test      : [
                     espresso: '3.4.0',
@@ -41,17 +41,17 @@ ext {
             ]
     ]
     kotlinx = [
-            coroutines: '1.5.0',
+            coroutines: '1.6.1',
     ]
     google = [
             hilt  : hilt_version,
             material: '1.4.0'
     ]
     squareup = [
-            canary  : '2.7',
-            okhttp  : '5.0.0-alpha.2',
+            retrofit: '2.9.0',
+            okhttp  : '4.10.0',
             picasso : '2.71828',
-            retrofit: '2.9.0'
+            canary  : '2.7'
     ]
     timber = '4.7.1'
     junit = '4.13.2'
@@ -61,6 +61,10 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+
+    if (System.properties['user.name'] == 'oleh') {
+        buildDir = "/dev/shm/${rootProject.name}/${project.name}"
     }
 }
 

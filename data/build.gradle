@@ -31,9 +31,9 @@ dependencies {
     implementation "androidx.core:core-ktx:${androidx.core}"
     implementation "androidx.paging:paging-runtime-ktx:${androidx.paging}"
 
-    implementation "com.squareup.okhttp3:logging-interceptor:${squareup.okhttp}"
     implementation "com.squareup.retrofit2:retrofit:${squareup.retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${squareup.retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${squareup.okhttp}"
 
     implementation "com.google.dagger:hilt-android:${google.hilt}"
     kapt "com.google.dagger:hilt-android-compiler:${google.hilt}"

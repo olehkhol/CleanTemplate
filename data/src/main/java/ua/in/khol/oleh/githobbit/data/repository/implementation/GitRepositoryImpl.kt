@@ -15,7 +15,7 @@ class GitRepositoryImpl(
     private val database: GitDatabase
 ) : GitRepository {
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     override fun getSearchResultStream(query: String): Flow<PagingData<Repo>> {
 
         // It is very important that these two queries are "in sync",
