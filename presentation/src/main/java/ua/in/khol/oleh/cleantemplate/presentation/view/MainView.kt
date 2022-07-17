@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.view
+package ua.`in`.khol.oleh.cleantemplate.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,13 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import ua.`in`.khol.oleh.cleantemplate.ExtraConstants.Companion.REPO
+import ua.`in`.khol.oleh.cleantemplate.presentation.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.cleantemplate.R
 import ua.`in`.khol.oleh.cleantemplate.databinding.ViewMainBinding
 import ua.`in`.khol.oleh.cleantemplate.domain.model.Repo
-import ua.`in`.khol.oleh.cleantemplate.view.adapters.RepoAdapter
-import ua.`in`.khol.oleh.cleantemplate.view.adapters.RepoLoadStateAdapter
-import ua.`in`.khol.oleh.cleantemplate.viewmodel.MainViewModel
+import ua.`in`.khol.oleh.cleantemplate.presentation.view.adapters.RepoAdapter
+import ua.`in`.khol.oleh.cleantemplate.presentation.view.adapters.RepoLoadStateAdapter
+import ua.`in`.khol.oleh.cleantemplate.presentation.viewmodel.MainViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint

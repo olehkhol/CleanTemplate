@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.viewmodel.events
+package ua.`in`.khol.oleh.cleantemplate.presentation.viewmodel.events
 
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable

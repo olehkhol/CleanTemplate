@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate
+package ua.`in`.khol.oleh.cleantemplate.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

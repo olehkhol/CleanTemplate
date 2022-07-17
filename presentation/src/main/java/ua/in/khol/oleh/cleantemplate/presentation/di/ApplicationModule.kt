@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.di
+package ua.`in`.khol.oleh.cleantemplate.presentation.di
 
 import dagger.Module
 import dagger.hilt.InstallIn

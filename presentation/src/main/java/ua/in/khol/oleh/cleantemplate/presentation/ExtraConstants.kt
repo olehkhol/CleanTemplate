@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate
+package ua.`in`.khol.oleh.cleantemplate.presentation
 
 class ExtraConstants {
     companion object {

@@ -1,10 +1,10 @@
-package ua.`in`.khol.oleh.cleantemplate.view.adapters
+package ua.`in`.khol.oleh.cleantemplate.presentation.view.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import ua.`in`.khol.oleh.cleantemplate.domain.model.Repo
-import ua.`in`.khol.oleh.cleantemplate.viewmodel.events.SingleLiveEvent
+import ua.`in`.khol.oleh.cleantemplate.presentation.viewmodel.events.SingleLiveEvent
 import javax.inject.Inject
 
 class RepoAdapter @Inject constructor() :

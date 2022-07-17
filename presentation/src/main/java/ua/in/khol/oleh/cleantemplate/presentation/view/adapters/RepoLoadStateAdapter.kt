@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.view.adapters
+package ua.`in`.khol.oleh.cleantemplate.presentation.view.adapters
 
 import android.view.ViewGroup
 import androidx.paging.LoadState

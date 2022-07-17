@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.view
+package ua.`in`.khol.oleh.cleantemplate.presentation.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import ua.`in`.khol.oleh.cleantemplate.ExtraConstants.Companion.REPO
+import ua.`in`.khol.oleh.cleantemplate.presentation.ExtraConstants.Companion.REPO
 import ua.`in`.khol.oleh.cleantemplate.R
 import ua.`in`.khol.oleh.cleantemplate.databinding.ViewDetailBinding
 import ua.`in`.khol.oleh.cleantemplate.domain.model.Repo
-import ua.`in`.khol.oleh.cleantemplate.view.adapters.SubAdapter
-import ua.`in`.khol.oleh.cleantemplate.viewmodel.DetailViewModel
+import ua.`in`.khol.oleh.cleantemplate.presentation.view.adapters.SubAdapter
+import ua.`in`.khol.oleh.cleantemplate.presentation.viewmodel.DetailViewModel
 
 @AndroidEntryPoint
 class DetailView : AppCompatActivity() {

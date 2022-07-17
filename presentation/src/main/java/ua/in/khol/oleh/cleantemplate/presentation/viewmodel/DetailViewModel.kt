@@ -1,4 +1,4 @@
-package ua.`in`.khol.oleh.cleantemplate.viewmodel
+package ua.`in`.khol.oleh.cleantemplate.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
